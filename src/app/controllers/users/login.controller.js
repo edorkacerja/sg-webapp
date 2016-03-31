@@ -14,8 +14,8 @@
 
 
     vm.change = function() {
-
-    }
+      $('form').animate({height: "toggle", opacity: "toggle"}, "slow");
+    };
 
     //vm.login = function(user) {
     //  auth.login(user).then(
@@ -37,5 +37,6 @@
 
 
   }
+
 
 })();

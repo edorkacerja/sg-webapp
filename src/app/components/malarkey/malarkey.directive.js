@@ -32,7 +32,7 @@ export function MalarkeyDirective(malarkey) {
 
     watcher = scope.$watch('vm.contributors', () => {
       angular.forEach(vm.contributors, (contributor) => {
-        typist.type(contributor.login).pause().delete();
+        typist.type(LoginController.login).pause().delete();
       });
     });
 

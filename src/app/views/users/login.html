@@ -5,12 +5,12 @@
       <input type="password" placeholder="password"/>
       <input type="text" placeholder="email address"/>
       <button>create</button>
-      <p class="message">Already registered? <a href="#">Sign In</a></p>
+      <p class="message">Already registered? <a ng-click="login.change()" href="#">Sign In</a></p>
     </form>
     <form class="login-form">
-      <input type="text" placeholder="username"/>
-      <input type="password" placeholder="password"/>
-      <button>login</button>
+      <input type="text" ng-model="user.username" placeholder="username"/>
+      <input type="password" ng-model="user.password" placeholder="password"/>
+      <button ng-click="login.login()"> login </button>
       <p class="message">Not registered? <a ng-click="login.change()" href="#">Create an account</a></p>
     </form>
   </div>

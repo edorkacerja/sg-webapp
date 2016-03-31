@@ -17,6 +17,13 @@ export class MainController {
     }, 4000);
   }
 
+  toggleSideNavbar(){
+    $("#menu-toggle").click(function(e) {
+      e.preventDefault();
+      $("#wrapper").toggleClass("toggled");
+    });
+  }
+
   getWebDevTec(webDevTec) {
     this.awesomeThings = webDevTec.getTec();
 
@@ -24,6 +31,7 @@ export class MainController {
       awesomeThing.rank = Math.random();
     });
   }
+
 
   showToastr() {
     this.toastr.info('Fork <a href="https://github.com/Swiip/generator-gulp-angular" target="_blank"><b>generator-gulp-angular</b></a>');

@@ -5,7 +5,7 @@ export class LoginController {
   constructor ($scope, $timeout, $state, webDevTec, toastr) {
     'ngInject';
     this.toastr = toastr;
-
+    this.$state = $state;
 
     /** @ngInject */
 

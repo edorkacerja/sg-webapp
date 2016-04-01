@@ -2,8 +2,9 @@
  * Created by AcerPC on 3/31/2016.
  */
 export class LoginController {
-  constructor ($scope, $timeout, $state, webDevTec, toastr) {
+  constructor ($state, toastr, AuthService) {
     'ngInject';
+    this.AuthService = AuthService;
     this.toastr = toastr;
     this.$state = $state;
 
@@ -12,11 +13,43 @@ export class LoginController {
 
   }
 
-  login(){
-    //console.log(user);
+  login(user){
+
+    //todo when api is ready
+    //this.AuthService.login(user).then(
+    //  function() {
+    //    this.$state.go('buildings');
+    //    this.toastr.success("Влязохте успешно!" );
+    //  },
+    //  function(error) {
+    //    this.toastr.error("Неуспешно влизане в системата" , error );
+    //    this.errorMessage = error.data.error_description;
+    //  }
+    //);
+
+    console.log(user);
     this.$state.go('home');
     this.showToastr()
   }
+
+
+
+  register(regUser){
+
+    //todo when api is ready
+    //this.AuthService.register(regUser).then(
+    //  function() {
+    //    this.$state.go('login');
+    //  },
+    //  function(error){
+    //    this.status = error;
+    //  }
+    //);
+    console.log(regUser);
+    this.change();
+    this.toastr.success("Registration Successful, Log in now" );
+  }
+
 
   change(){
       $('form').animate({height: "toggle", opacity: "toggle"}, "slow");

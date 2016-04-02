@@ -10,4 +10,23 @@ export class TeamController {
 
 
   }
+
+
+  getTeam(){
+
+
+    return [
+      {name:"edor",
+        description: "edor has big balls"},
+      {name:"teo",
+        description: "teo e gay"},
+      {name:"edor",
+        description: "edor has big balls"},
+      {name:"teo",
+        description: "teo e gay"},
+      {name:"edor",
+        description: "edor has big balls"},
+      {name:"teo",
+        description: "teo e gay"}];
+  }
 }

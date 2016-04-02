@@ -11,6 +11,7 @@ import { GithubContributorService } from '../app/components/githubContributor/gi
 import { AuthService } from './services/auth.service';
 import { WebDevTecService } from '../app/components/webDevTec/webDevTec.service';
 import { NavbarDirective } from '../app/components/navbar/navbar.directive';
+import { NavbarTopDirective } from '../app/components/navbar/navbarTop.directive';
 import { MalarkeyDirective } from '../app/components/malarkey/malarkey.directive';
 
 
@@ -29,4 +30,5 @@ angular.module('sg', ['ngAnimate', 'ngSanitize', 'ngResource', 'ui.router', 'ui.
   .controller('ProfessorsController', ProfessorsController)
   .controller('LoginController', LoginController)
   .directive('acmeNavbar', NavbarDirective)
+  .directive('topNavbar', NavbarTopDirective)
   .directive('acmeMalarkey', MalarkeyDirective);

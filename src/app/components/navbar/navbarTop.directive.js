@@ -1,13 +1,13 @@
-export function NavbarDirective() {
+export function NavbarTopDirective() {
   'ngInject';
 
   let directive = {
     restrict: 'E',
-    templateUrl: 'app/components/navbar/navbar.html',
+    templateUrl: 'app/components/navbar/navbarTop.html',
     scope: {
-        creationDate: '='
+      creationDate: '='
     },
-    controller: NavbarController,
+    controller: NavbarTopController,
     controllerAs: 'vm',
     bindToController: true
   };
@@ -15,17 +15,11 @@ export function NavbarDirective() {
   return directive;
 }
 
-class NavbarController {
+class NavbarTopController {
   constructor (moment) {
     'ngInject';
-
-
-
 
     // "this.creation" is available by directive option "bindToController: true"
     this.relativeDate = moment(this.creationDate).fromNow();
   }
-
-
-
 }

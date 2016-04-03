@@ -6,27 +6,30 @@ export class TeamController {
   constructor() {
     'ngInject';
 
+    this.teamMembers = [
+      {name:"edor",
+        description: "edor has big balls"},
+      {name:"teo",
+        description: "teo e gay"},
+      {name:"edor",
+        description: "edor has big balls"},
+      {name:"teo",
+        description: "teo e gay"},
+      {name:"edor",
+        description: "edor has big balls"},
+      {name:"teo",
+        description: "teo e gay"}
+    ];
 
 
 
   }
 
 
+
   getTeam(){
 
 
-    return [
-      {name:"edor",
-        description: "edor has big balls"},
-      {name:"teo",
-        description: "teo e gay"},
-      {name:"edor",
-        description: "edor has big balls"},
-      {name:"teo",
-        description: "teo e gay"},
-      {name:"edor",
-        description: "edor has big balls"},
-      {name:"teo",
-        description: "teo e gay"}];
+    return this.teamMembers;
   }
 }

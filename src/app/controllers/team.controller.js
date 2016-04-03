@@ -18,6 +18,18 @@ export class TeamController {
       {name:"edor",
         description: "edor has big balls"},
       {name:"teo",
+        description: "teo e gay"},
+      {name:"edor",
+        description: "edor has big balls"},
+      {name:"teo",
+        description: "teo e gay"},
+      {name:"edor",
+        description: "edor has big balls"},
+      {name:"teo",
+        description: "teo e gay"},
+      {name:"edor",
+        description: "edor has big balls"},
+      {name:"teo",
         description: "teo e gay"}
     ];
 

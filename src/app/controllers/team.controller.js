@@ -3,64 +3,88 @@
  */
 
 export class TeamController {
-  constructor(ModalService) {
+  constructor($modal) {
     'ngInject';
-    this.ModalService = ModalService;
+    this.$modal = $modal;
     this.teamMembers = [
-      {name:"edor",
-        description: "edor has big balls"},
-      {name:"teo",
-        description: "teo e gay"},
-      {name:"edor",
-        description: "edor has big balls"},
-      {name:"teo",
-        description: "teo e gay"},
-      {name:"edor",
-        description: "edor has big balls"},
-      {name:"teo",
-        description: "teo e gay"},
-      {name:"edor",
-        description: "edor has big balls"},
-      {name:"teo",
-        description: "teo e gay"},
-      {name:"edor",
-        description: "edor has big balls"},
-      {name:"teo",
-        description: "teo e gay"},
-      {name:"edor",
-        description: "edor has big balls"},
-      {name:"teo",
-        description: "teo e gay"}
+      {
+        name: "edor",
+        description: "edor has big balls"
+      },
+      {
+        name: "teo",
+        description: "teo e gay"
+      },
+      {
+        name: "edor",
+        description: "edor has big balls"
+      },
+      {
+        name: "teo",
+        description: "teo e gay"
+      },
+      {
+        name: "edor",
+        description: "edor has big balls"
+      },
+      {
+        name: "teo",
+        description: "teo e gay"
+      },
+      {
+        name: "edor",
+        description: "edor has big balls"
+      },
+      {
+        name: "teo",
+        description: "teo e gay"
+      },
+      {
+        name: "edor",
+        description: "edor has big balls"
+      },
+      {
+        name: "teo",
+        description: "teo e gay"
+      },
+      {
+        name: "edor",
+        description: "edor has big balls"
+      },
+      {
+        name: "teo",
+        description: "teo e gay"
+      }
     ];
-
 
 
   }
 
 
-
-  getTeam(){
+  getTeam() {
 
 
     return this.teamMembers;
   }
 
 
+  //addMember(){
+  //
+  //  this.ModalService.showModal({
+  //    templateUrl: 'app/views/addTeamMember.html',
+  //    controller: 'AddTeamMemberController',
+  //    controllerAs: 'atm'
+  //  });
+  //}
 
-  addMember(){
-    console.log('addmemberclicked');
-
-    this.ModalService.showModal({
+  addMember() {
+    var modalInstance = this.$modal.open({
+      animation: true,
       templateUrl: 'app/views/addTeamMember.html',
       controller: 'AddTeamMemberController',
-      controllerAs: 'atm'
-    }).then(function(modal) {
+      size: 'sm'
 
-      //it's a bootstrap element, use 'modal' to show it
-      //modal.element.modal();
-      modal.close.then(function(result) {
-        console.log(result);
-      });
     });
   }
+
 }

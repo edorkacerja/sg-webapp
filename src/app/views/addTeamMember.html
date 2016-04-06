@@ -1,1 +1,30 @@
-<div>bullshit</div>
+
+<div class="modal-header">
+  <h3 class="modal-title">Registration Form</h3>
+</div>
+<form name="atm.registrationForm" role="form" ng-submit="atm.register()" novalidate>
+  <div class="modal-body">
+    <div class="form-group row" ng-class="{ 'has-error' : atm.registrationForm.address.$error.required && atm.registrationForm.address.$dirty }">
+      <label class="col-md-2 control-label" for="name">Name</label>
+      <div class="col-md-10">
+        <input type="text" ng-model="atm.user.name" class="form-control" name="name" id="name" placeholder="Name" required>
+        <span ng-show="atm.registrationForm.name.$error.required  && !atm.registrationForm.name.$pristine" class="help-block">Please enter your full name!</span>
+      </div>
+    </div>
+
+    <div class="form-group row"  ng-class="{ 'has-error' : atm.registrationForm.description.$error.required && atm.registrationForm.description.$dirty }">
+      <label class="col-md-2 control-label" for="description">Description</label>
+      <div class="col-md-10">
+        <input type="text" ng-model="atm.user.description" class="form-control" id="description" name="description" placeholder="Description" required>
+        <span ng-show="atm.registrationForm.description.$error.required  && !atm.registrationForm.description.$pristine" class="help-block">Please enter the description!</span>
+      </div>
+    </div>
+
+
+
+  </div>
+  <div class="modal-footer">
+    <button class="btn btn-primary" click-and-disable="atm.register()" ng-disabled="atm.registrationForm.$invalid" type="submit" >Register</button>
+    <button class="btn btn-warning" type="button" ng-click="atm.cancel()">Cancel</button>
+  </div>
+</form>

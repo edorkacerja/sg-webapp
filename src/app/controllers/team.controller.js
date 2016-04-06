@@ -68,22 +68,15 @@ export class TeamController {
   }
 
 
-  //addMember(){
-  //
-  //  this.ModalService.showModal({
-  //    templateUrl: 'app/views/addTeamMember.html',
-  //    controller: 'AddTeamMemberController',
-  //    controllerAs: 'atm'
-  //  });
-  //}
+
 
   addMember() {
     var modalInstance = this.$modal.open({
       animation: true,
       templateUrl: 'app/views/addTeamMember.html',
       controller: 'AddTeamMemberController',
-      size: 'sm'
-
+      controllerAs: 'atm',
+      size: 'md'
     });
   }
 

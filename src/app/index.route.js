@@ -2,7 +2,7 @@ export function routerConfig($stateProvider, $urlRouterProvider) {
   'ngInject';
   $stateProvider
     .state('login', {
-      url: '/',
+      url: '/login',
       templateUrl: 'app/views/users/login.html',
       controller: 'LoginController',
       controllerAs: 'login'
@@ -28,5 +28,5 @@ export function routerConfig($stateProvider, $urlRouterProvider) {
 
   ;
 
-  $urlRouterProvider.otherwise('/');
+  $urlRouterProvider.otherwise('/login');
 }

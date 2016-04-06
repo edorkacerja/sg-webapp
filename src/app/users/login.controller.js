@@ -15,21 +15,19 @@ export class LoginController {
 
   login(user){
 
-    //todo when api is ready
-    //this.AuthService.login(user).then(
-    //  function() {
-    //    this.$state.go('buildings');
-    //    this.toastr.success("Влязохте успешно!" );
-    //  },
-    //  function(error) {
-    //    this.toastr.error("Неуспешно влизане в системата" , error );
-    //    this.errorMessage = error.data.error_description;
-    //  }
-    //);
+
+    this.AuthService.login(user).then(
+      function() {
+        this.$state.go('home');
+        this.toastr.success("Влязохте успешно!" );
+      },
+      function(error) {
+        this.toastr.error("didnt work, but try again until your fingers bleed" , error );
+        //this.errorMessage = error.data.error_description;
+      }
+    );
 
     console.log(user);
-    this.$state.go('home');
-    this.showToastr()
   }
 
 

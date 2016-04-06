@@ -5,7 +5,7 @@ export class AuthService {
     this.$window = $window;
     this.$http = $http;
     this.api = api;
-
+    this.userInfo = {};
     this.$q = $q;
     //this.userInfo;
     this.$rootScope = $rootScope;
@@ -15,20 +15,15 @@ export class AuthService {
   login(user) {
 
   var deferred = this.$q.defer();
-
-
-
-
-
-
-  this.$http.post(this.api+"v1/admins_sessions", {"email": user.username, "password": user.password})
+  this.$http.post(this.api+"v1/admins_sessions", user)
     .then(
     function(response) {
 
       if(response.status == 200) {
         console.log(response);
+
         //this.userInfo = {//generate an access token on the server for the user
-        //  accessToken: response.data.access_token,
+          //accessToken: response.data.access_token,
         //  userName: response.data.userName,
         //  userRoles: response.data.userRoles.split(',')
         //};

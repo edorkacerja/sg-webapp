@@ -4,27 +4,35 @@
 export class LoginController {
   constructor ($state, toastr, AuthService) {
     'ngInject';
+
     this.AuthService = AuthService;
     this.toastr = toastr;
     this.$state = $state;
+
 
     /** @ngInject */
 
 
   }
 
-  login(user){
+  
 
+  login(user){
+    var self = this;
 
     this.AuthService.login(user).then(
       function() {
-        this.$state.go('home');
-        this.toastr.success("Влязохте успешно!" );
+
+        console.log('we came here');
+        console.log(self);
+        self.$state.go('home');
+        //this.toastr.success("Влязохте успешно!" );
       },
       function(error) {
-        this.toastr.error("didnt work, but try again until your fingers bleed" , error );
+        //this.toastr.error("didnt work, but try again until your fingers bleed");
         //this.errorMessage = error.data.error_description;
       }
+
     );
 
     console.log(user);

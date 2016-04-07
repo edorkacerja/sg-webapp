@@ -1,19 +1,22 @@
 export class AddTeamMemberController {
-  constructor(AddTeamMemberService) {
+  constructor(AddTeamMemberService , $rootScope) {
     'ngInject';
 
-    this.user = {};
 
     this.AddTeamMemberService = AddTeamMemberService;
+    this.$rootScope = $rootScope;
+
+
 
   }
 
 
-  register(){
-    //feedbackFactory.submitReview().save({},$scope.feedback);
+  register(user){
 
-    console.log(this.AddTeamMemberService.submitNewMember());
-    console.log(this.user);
+    this.$rootScope.$broadcast('memberAdded', user);
+
+
+
 
   }
 

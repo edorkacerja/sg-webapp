@@ -3,8 +3,14 @@
  */
 
 export class TeamController {
-  constructor($modal) {
+
+  constructor($modal, $scope) {
     'ngInject';
+
+
+    //this.$modalInstance = $modalInstance;
+    this.$scope = $scope;
+    this.$scope.$on('memberAdded', this.memberAdded());
     this.$modal = $modal;
     this.teamMembers = [
       {
@@ -61,8 +67,8 @@ export class TeamController {
   }
 
 
-  getTeam() {
 
+  getTeam() {
 
     return this.teamMembers;
   }
@@ -71,6 +77,7 @@ export class TeamController {
 
 
   addMember() {
+
     var modalInstance = this.$modal.open({
       animation: true,
       templateUrl: 'app/views/addTeamMember.html',
@@ -78,6 +85,24 @@ export class TeamController {
       controllerAs: 'atm',
       size: 'md'
     });
+
   }
+
+
+  memberAdded(){
+    return (event, data) => {
+      console.log(data);
+      this.teamMembers.push(data);
+      //this.$modalInstance.close();
+    };
+
+  }
+
+  deleteTeamMember(member){
+      var index = this.teamMembers.indexOf(member);
+      this.teamMembers.splice(index, 1);
+      }
+
+
 
 }

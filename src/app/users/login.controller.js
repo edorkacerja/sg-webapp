@@ -15,21 +15,21 @@ export class LoginController {
 
   }
 
-  
+
 
   login(user){
+
     var self = this;
 
     this.AuthService.login(user).then(
-      function() {
+      function(result) {
 
-        console.log('we came here');
-        console.log(self);
+        console.log(result);
         self.$state.go('home');
-        //this.toastr.success("Влязохте успешно!" );
+        self.toastr.success("Влязохте успешно!" );
       },
       function(error) {
-        //this.toastr.error("didnt work, but try again until your fingers bleed");
+        self.toastr.error("didnt work, but try again until your fingers bleed");
         //this.errorMessage = error.data.error_description;
       }
 

@@ -23,36 +23,49 @@
                       {{showDetails ? 'Hide Details':'Show Details'}}
                     </button>
 
-                    <ul class="media-list" tab-pane fade in active>
+                    <ul class="media-list">
                       <ul class="nav nav-tabs" role="tablist">
                         <li role="presentation" ng-class="{active:isSelected(1)}">
-                          <a ng-click="select(1)" aria-controls="all menu" role="tab">The Menu</a></li>
+                          <a ng-click="select(1)" aria-controls="all menu" role="tab">ALL PROFESSORS</a></li>
                         <li role="presentation" ng-class="{active:isSelected(2)}">
-                          <a ng-click="select(2)" aria-controls="appetizers" role="tab">Appetizers</a></li>
+                          <a ng-click="select(2)" aria-controls="appetizers" role="tab">MAT</a></li>
                         <li role="presentation" ng-class="{active:isSelected(3)}">
-                          <a ng-click="select(3)" aria-controls="mains" role="tab">Mains</a></li>
+                          <a ng-click="select(3)" aria-controls="mains" role="tab">COS</a></li>
                         <li role="presentation" ng-class="{active:isSelected(4)}">
-                          <a  ng-click="select(4)" aria-controls="desserts" role="tab">Desserts</a></li>
+                          <a  ng-click="select(4)" aria-controls="desserts" role="tab">BUS</a></li>
                       </ul>
 
-                      <li class="media" ng-repeat="profs in prof.getProfessors()">
+
+
+
+                      <div id="my-tab-content" class="tab-content">
+
+                      <li class="media" ng-repeat="prof in prof.getProfessors()">
                         <div class="media-left media-middle">
                           <!--<a ui-sref="app.dishdetails({id: dish.id})">-->
                             <!--<img class="media-object img-thumbnail"-->
                                  <!--ng-src={{dish.image}} alt="Uthappizza">-->
                           <!--</a>-->
                         </div>
+
                         <div class="media-body">
-                          <h2 class="media-heading">{{}}
-                            <span class="label label-danger">{{}}</span>
-                            <span class="badge">{{}}</span></h2>
+                          <h2 class="media-heading">{{prof.name}}
+                            <span class="label label-danger">{{prof.description}}</span>
+                            <span class="badge">{{prof.description}}</span></h2>
                           <p ng-show="showDetails">{{}}</p>
 
                         </div>
 
                       </li>
+                        </div>
 
                     </ul>
+
+
+
+
+
+
 
 
                   </div>

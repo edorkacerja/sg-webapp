@@ -97,7 +97,6 @@ export class ProfessorsController {
 
 
   getProfessors(){
-
     return this.professorsArray;
   }
 }

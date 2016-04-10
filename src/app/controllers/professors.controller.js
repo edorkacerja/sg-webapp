@@ -6,56 +6,69 @@ export class ProfessorsController {
   constructor() {
     'ngInject';
 
+    this.filtText = '';
     this.tab = 1;
 
     this.professorsArray = [
       {
         name: "edor",
-        description: "edor has big balls"
+        description: "edor has big balls cos dept",
+        department: "cos"
       },
       {
         name: "teo",
-        description: "teo e gay"
+        description: "bus department",
+        department: "bus"
       },
       {
         name: "edor",
-        description: "edor has big balls"
+        description: "edor eco department has big balls",
+        department: "eco"
       },
       {
         name: "teo",
-        description: "teo e gay"
+        description: "teo e gay",
+        department: "cos"
       },
       {
         name: "edor",
-        description: "edor has big balls"
+        description: "edor has big balls",
+        department: "cos"
       },
       {
         name: "teo",
-        description: "teo e gay"
+        description: "teo e gay",
+        department: "cos"
       },
       {
         name: "edor",
-        description: "edor has big balls"
+        description: "edor has big balls",
+        department: "cos"
       },
       {
         name: "teo",
-        description: "teo e gay"
+        description: "teo e gay",
+        department: "cos"
       },
       {
         name: "edor",
-        description: "edor has big balls"
+        description: "edor has big balls",
+        department: "cos"
       },
       {
         name: "teo",
-        description: "teo e gay"
+        description: "teo e gay",
+        department: "cos"
       },
       {
         name: "edor",
-        description: "edor has big balls"
+        description: "edor has big balls",
+        department: "mat"
       },
       {
         name: "teo",
-        description: "teo e gay"
+        description: "teo e gay",
+        department: "inf"
       }
     ];
 
@@ -65,32 +78,34 @@ export class ProfessorsController {
 
 
 
-
-
-  select(setTab) {
+  select(setTab){
     this.tab = setTab;
 
     if (setTab === 2) {
-      $scope.filtText = "appetizer";
+      this.filtText = "cos";
     }
     else if (setTab === 3) {
-      $scope.filtText = "mains";
+      this.filtText = "eco";
     }
     else if (setTab === 4) {
-      $scope.filtText = "dessert";
+      this.filtText = "mat";
     }
     else {
-      $scope.filtText = "";
+      this.filtText = "";
     }
   };
 
   isSelected(checkTab) {
-    return ($scope.tab === checkTab);
+    return (this.tab === checkTab);
   };
 
-  //$scope.toggleDetails = function() {
-  //  $scope.showDetails = !$scope.showDetails;
-  //};
+
+
+
+
+
+
+
 
 
 

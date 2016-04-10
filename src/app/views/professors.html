@@ -10,77 +10,51 @@
             <h1>Bonev = Flash</h1>
 
 
-
-
-              <div class="row row-content" >
-                <div class="col-xs-12" >
-                  <h3>{{    }}</h3>
-                </div>
-                <div class="col-xs-12" >
-                  <div class="tab-content">
-
-                    <button ng-click="" class="btn btn-xs btn-primary pull-right" type="button">
-                      {{showDetails ? 'Hide Details':'Show Details'}}
-                    </button>
-
-                    <ul class="media-list">
-                      <ul class="nav nav-tabs" role="tablist">
-                        <li role="presentation" ng-class="{active:isSelected(1)}">
-                          <a ng-click="select(1)" aria-controls="all menu" role="tab">ALL PROFESSORS</a></li>
-                        <li role="presentation" ng-class="{active:isSelected(2)}">
-                          <a ng-click="select(2)" aria-controls="appetizers" role="tab">MAT</a></li>
-                        <li role="presentation" ng-class="{active:isSelected(3)}">
-                          <a ng-click="select(3)" aria-controls="mains" role="tab">COS</a></li>
-                        <li role="presentation" ng-class="{active:isSelected(4)}">
-                          <a  ng-click="select(4)" aria-controls="desserts" role="tab">BUS</a></li>
-                      </ul>
+            <ul class="media-list" tab-pane fade in active>
+              <ul class="nav nav-tabs" role="tablist">
+                <li role="presentation" ng-class="{active:isSelected(1)}">
+                  <a ng-click="prof.select(1)" aria-controls="all menu" role="tab">All departments</a></li>
+                <li role="presentation" ng-class="{active:isSelected(2)}">
+                  <a ng-click="prof.select(2)" aria-controls="appetizers" role="tab">COS</a></li>
+                <li role="presentation" ng-class="{active:isSelected(3)}">
+                  <a ng-click="prof.select(3)" aria-controls="mains" role="tab">ECO</a></li>
+                <li role="presentation" ng-class="{active:isSelected(4)}">
+                  <a ng-click="prof.select(4)" aria-controls="desserts" role="tab">MAT</a></li>
+              </ul>
 
 
 
+              <div id="team">
+                <div>
+                  <ul>
+                    <button ng-click=""> Add Team Member</button>
 
-                      <div id="my-tab-content" class="tab-content">
+                    <li class="media" ng-repeat="prof in prof.getProfessors() | filter: prof.filtText">
 
-                      <li class="media" ng-repeat="prof in prof.getProfessors()">
+                      <form ng-show="!editing" ng-submit="editing = true">
+
                         <div class="media-left media-middle">
-                          <!--<a ui-sref="app.dishdetails({id: dish.id})">-->
-                            <!--<img class="media-object img-thumbnail"-->
-                                 <!--ng-src={{dish.image}} alt="Uthappizza">-->
-                          <!--</a>-->
+                          <img src="http://lorempixum.com/100/100/nature/1" class="media-object img-thumbnail">
                         </div>
 
                         <div class="media-body">
-                          <h2 class="media-heading">{{prof.name}}
-                            <span class="label label-danger">{{prof.description}}</span>
-                            <span class="badge">{{prof.description}}</span></h2>
-                          <p ng-show="showDetails">{{}}</p>
+                          <h3 class="media-heading">{{ prof.name}}</h3>
 
+                          <p class="label label-danger">{{ prof.department }}</p>
+                          <p>{{ prof.description }}</p>
+                          <button ng-hide="editing" type="submit" class="btn btn-primary pull-right">Edit</button>
                         </div>
-
-                      </li>
-                        </div>
-
-                    </ul>
+                      </form>
 
 
+                    </li>
 
-
-
-
-
-
-                  </div>
+                  </ul>
                 </div>
+              </div><!-- professors list finish -->
 
 
-              </div>
-
-
-
-
-
-
-
-
+            </ul>
 
 
           </div>

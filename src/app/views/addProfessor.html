@@ -1,29 +1,53 @@
 <div class="modal-header">
   <h3 class="modal-title">Registration Form</h3>
 </div>
-<form name="atm.registrationForm" role="form" ng-submit="atm.register(atm.user)" novalidate>
+<form name="apr.registrationForm" role="form" ng-submit="apr.addNewProfessor(apr.newProfessor)" novalidate>
   <div class="modal-body">
-    <div class="form-group row" ng-class="{ 'has-error' : atm.registrationForm.name.$error.required && atm.registrationForm.name.$dirty }">
+    <div class="form-group row"
+         ng-class="{ 'has-error' : apr.registrationForm.name.$error.required && apr.registrationForm.name.$dirty }">
       <label class="col-md-2 control-label" for="name">Name</label>
+
       <div class="col-md-10">
-        <input type="text" ng-model="atm.user.name" class="form-control" name="name" id="name" placeholder="name" required>
-        <span ng-show="atm.registrationForm.name.$error.required  && !atm.registrationForm.name.$pristine" class="help-block">Please enter your name!</span>
+        <input type="text" ng-model="apr.newProfessor.name" class="form-control" name="name" id="name"
+               placeholder="name" required>
+        <span ng-show="apr.registrationForm.name.$error.required  && !apr.registrationForm.name.$pristine"
+              class="help-block">Please enter your name!</span>
       </div>
     </div>
 
-    <div class="form-group row"  ng-class="{ 'has-error' : atm.registrationForm.description.$error.required && atm.registrationForm.description.$dirty }">
+    <div class="form-group row"
+         ng-class="{ 'has-error' : apr.registrationForm.department.$error.required}">
+      <label class="col-md-2 control-label" for="department">Department:</label>
+
+      <div class="col-md-10">
+        <select class="form-control" id="department" ng-model="apr.newProfessor.department" required>
+          <option>cos</option>
+          <option>inf</option>
+          <option>mat</option>
+          <option>jmc</option>
+          <option>pos</option>
+          <option>eco</option>
+          <option>bus</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="form-group row"
+         ng-class="{ 'has-error' : apr.registrationForm.description.$error.required && apr.registrationForm.description.$dirty }">
       <label class="col-md-2 control-label" for="description">Description</label>
+
       <div class="col-md-10">
-        <input type="text" ng-model="atm.user.description" class="form-control" id="description" name="description" placeholder="Description" required>
-        <span ng-show="atm.registrationForm.description.$error.required  && !atm.registrationForm.description.$pristine" class="help-block">Please enter the description!</span>
+        <input type="text" ng-model="atm.newProfessor.description" class="form-control" id="description"
+               name="description" placeholder="Description" required>
+        <span ng-show="apr.registrationForm.description.$error.required  && !apr.registrationForm.description.$pristine"
+              class="help-block">Please enter the description!</span>
       </div>
     </div>
-
 
 
   </div>
   <div class="modal-footer">
-    <button class="btn btn-primary" ng-disabled="atm.registrationForm.$invalid" type="submit" >Register</button>
-    <button class="btn btn-warning" type="button" ng-click="atm.cancel()">Cancel</button>
+    <button class="btn btn-primary" ng-disabled="apr.registrationForm.$invalid" type="submit">Register</button>
+    <button class="btn btn-warning" type="button" ng-click="apr.closeRegistrationForm()">Cancel</button>
   </div>
 </form>

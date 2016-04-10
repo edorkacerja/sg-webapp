@@ -3,11 +3,14 @@
  */
 
 export class ProfessorsController {
-  constructor() {
+  constructor($modal) {
     'ngInject';
 
+    this.$modal = $modal;
+    //this.$modalInstance = $modalInstance;
     this.filtText = '';
     this.tab = 1;
+
 
     this.professorsArray = [
       {
@@ -102,14 +105,17 @@ export class ProfessorsController {
 
 
 
+  addProfessor() {
 
+    this.$modal.open({
+      animation: true,
+      templateUrl: 'app/views/addProfessor.html',
+      controller: 'AddProfessorController',
+      controllerAs: 'apr',
+      size: 'md'
+    });
 
-
-
-
-
-
-
+  }
 
   getProfessors(){
     return this.professorsArray;

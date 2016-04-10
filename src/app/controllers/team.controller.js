@@ -78,7 +78,7 @@ export class TeamController {
 
   addMember() {
 
-    var modalInstance = this.$modal.open({
+    this.$modal.open({
       animation: true,
       templateUrl: 'app/views/addTeamMember.html',
       controller: 'AddTeamMemberController',

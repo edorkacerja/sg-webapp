@@ -8,6 +8,7 @@ import { TeamController } from './controllers/team.controller';
 import { ProfessorsController } from './controllers/professors.controller';
 import { LoginController } from './users/login.controller';
 import { AddTeamMemberController } from './controllers/addTeamMember.controller';
+import { AddProfessorController } from './controllers/addProfessor.controller';
 import { GithubContributorService } from '../app/components/githubContributor/githubContributor.service';
 import { AuthService } from './services/auth.service';
 import { AddTeamMemberService } from './services/addTeamMember.service';
@@ -33,6 +34,7 @@ angular.module('sg', ['ngAnimate', 'angularModalService', 'ngSanitize', 'ngResou
   .controller('ProfessorsController', ProfessorsController)
   .controller('LoginController', LoginController)
   .controller('AddTeamMemberController', AddTeamMemberController)
+  .controller('AddProfessorController', AddProfessorController)
   .directive('acmeNavbar', NavbarDirective)
   .directive('topNavbar', NavbarTopDirective)
   .directive('acmeMalarkey', MalarkeyDirective);

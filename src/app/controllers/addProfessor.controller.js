@@ -1,27 +1,26 @@
-export class AddTeamMemberController {
-  constructor(AddTeamMemberService , $rootScope) {
+export class AddProfessorController {
+  constructor(AddTeamMemberService, $rootScope, $modalInstance) {
     'ngInject';
 
-
+    this.$modalInstance = $modalInstance;
     this.AddTeamMemberService = AddTeamMemberService;
     this.$rootScope = $rootScope;
 
+  }
 
+
+  addNewProfessor(newProfessor) {
+
+    this.$rootScope.$broadcast('memberAdded', newProfessor);
 
   }
 
 
-  register(user){
-
-    this.$rootScope.$broadcast('memberAdded', user);
-
-
-
-
+  closeRegistrationForm(){
+    console.log("close modal vella");
+    this.$modalInstance.dismiss();
   }
 
-
-
-
+}
 
 

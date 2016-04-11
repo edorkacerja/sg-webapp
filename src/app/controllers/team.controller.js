@@ -93,7 +93,6 @@ export class TeamController {
     return (event, data) => {
       console.log(data);
       this.teamMembers.push(data);
-      //this.$modalInstance.close();
     };
 
   }
@@ -101,7 +100,7 @@ export class TeamController {
   deleteTeamMember(member){
       var index = this.teamMembers.indexOf(member);
       this.teamMembers.splice(index, 1);
-      }
+  }
 
 
 

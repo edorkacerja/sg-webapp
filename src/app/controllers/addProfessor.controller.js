@@ -11,7 +11,8 @@ export class AddProfessorController {
 
   addNewProfessor(newProfessor) {
 
-    this.$rootScope.$broadcast('memberAdded', newProfessor);
+    this.$rootScope.$broadcast('NewProfessorAdded', newProfessor);
+    this.$modalInstance.dismiss();
 
   }
 

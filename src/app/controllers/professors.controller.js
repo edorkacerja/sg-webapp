@@ -3,14 +3,15 @@
  */
 
 export class ProfessorsController {
-  constructor($modal) {
-    'ngInject';
 
+  constructor($modal, $scope) {
+    'ngInject';
+    this.$scope = $scope;
     this.$modal = $modal;
     //this.$modalInstance = $modalInstance;
+    this.$scope.$on('NewProfessorAdded', this.professorAdded());
     this.filtText = '';
     this.tab = 1;
-
 
     this.professorsArray = [
       {
@@ -106,7 +107,6 @@ export class ProfessorsController {
 
 
   addProfessor() {
-
     this.$modal.open({
       animation: true,
       templateUrl: 'app/views/addProfessor.html',
@@ -117,7 +117,19 @@ export class ProfessorsController {
 
   }
 
+  professorAdded(){
+    return (event, data) => {
+      console.log(data);
+      this.professorsArray.push(data);
+    };
+  }
+
   getProfessors(){
     return this.professorsArray;
+  }
+
+  deleteProfessor(professor){
+    var index = this.professorsArray.indexOf(professor);
+    this.professorsArray.splice(index, 1);
   }
 }

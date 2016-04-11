@@ -3,7 +3,7 @@ export function routerConfig($stateProvider, $urlRouterProvider) {
   $stateProvider
     .state('login', {
       url: '/login',
-      templateUrl: 'app/views/users/login.html',
+      templateUrl: 'app/users/login.html',
       controller: 'LoginController',
       controllerAs: 'login'
     })

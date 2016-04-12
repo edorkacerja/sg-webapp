@@ -3,7 +3,7 @@ export function routerConfig($stateProvider, $urlRouterProvider) {
   $stateProvider
     .state('login', {
       url: '/login',
-      templateUrl: 'app/users/login.html',
+      templateUrl: 'app/views_controllers/users/login.html',
       controller: 'LoginController',
       controllerAs: 'login'
     })
@@ -15,13 +15,13 @@ export function routerConfig($stateProvider, $urlRouterProvider) {
     })
     .state('team', {
         url: '/team',
-        templateUrl: 'app/views/team.html',
+        templateUrl: 'app/views_controllers/team/team.html',
         controller: 'TeamController',
         controllerAs: 'team'
       })
     .state('professors', {
         url: '/professors',
-        templateUrl: 'app/views/professors.html',
+        templateUrl: 'app/views_controllers/professors/professors.html',
         controller: 'ProfessorsController',
         controllerAs: 'prof'
       })

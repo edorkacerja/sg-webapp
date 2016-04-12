@@ -80,7 +80,7 @@ export class TeamController {
 
     this.$modal.open({
       animation: true,
-      templateUrl: 'app/views/addTeamMember.html',
+      templateUrl: 'app/views_controllers/team/addTeamMember/addTeamMember.html',
       controller: 'AddTeamMemberController',
       controllerAs: 'atm',
       size: 'md'

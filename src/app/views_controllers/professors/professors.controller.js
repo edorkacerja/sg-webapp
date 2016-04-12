@@ -109,7 +109,7 @@ export class ProfessorsController {
   addProfessor() {
     this.$modal.open({
       animation: true,
-      templateUrl: 'app/views/addProfessor.html',
+      templateUrl: 'app/views_controllers/professors/addProfessor/addProfessor.html',
       controller: 'AddProfessorController',
       controllerAs: 'apr',
       size: 'md'

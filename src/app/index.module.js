@@ -4,11 +4,14 @@ import { config } from './index.config';
 import { routerConfig } from './index.route';
 import { runBlock } from './index.run';
 import { MainController } from './main/main.controller';
-import { TeamController } from './views_controllers/team/team.controller.js';
-import { ProfessorsController } from './views_controllers/professors/professors.controller.js';
+import { TeamController } from './views_controllers/team/team.controller';
+import { ProfessorsController } from './views_controllers/professors/professors.controller';
 import { LoginController } from './views_controllers/users/login.controller';
-import { AddTeamMemberController } from './views_controllers/team/addTeamMember/addTeamMember.controller.js';
-import { AddProfessorController } from './views_controllers/professors/addProfessor/addProfessor.controller.js';
+import { ClubsController } from './views_controllers/clubs/clubs.controller';
+import { InternshipsController } from './views_controllers/internships/internships.controller';
+import { AddTeamMemberController } from './views_controllers/team/addTeamMember/addTeamMember.controller';
+import { AddProfessorController } from './views_controllers/professors/addProfessor/addProfessor.controller';
+import { ProfessorDetailsController } from './views_controllers/professors/professorDetails/professorDetails.controller';
 import { GithubContributorService } from '../app/components/githubContributor/githubContributor.service';
 import { AuthService } from './services/auth.service';
 import { AddTeamMemberService } from './services/addTeamMember.service';
@@ -33,8 +36,11 @@ angular.module('sg', ['ngAnimate', 'angularModalService', 'ngSanitize', 'ngResou
   .controller('TeamController', TeamController)
   .controller('ProfessorsController', ProfessorsController)
   .controller('LoginController', LoginController)
+  .controller('InternshipsController', InternshipsController)
+  .controller('ClubsController', ClubsController)
   .controller('AddTeamMemberController', AddTeamMemberController)
   .controller('AddProfessorController', AddProfessorController)
+  .controller('ProfessorDetailsController', ProfessorDetailsController)
   .directive('acmeNavbar', NavbarDirective)
   .directive('topNavbar', NavbarTopDirective)
   .directive('acmeMalarkey', MalarkeyDirective);

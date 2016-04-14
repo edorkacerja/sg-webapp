@@ -20,11 +20,29 @@ export function routerConfig($stateProvider, $urlRouterProvider) {
         controllerAs: 'team'
       })
     .state('professors', {
-        url: '/professors',
-        templateUrl: 'app/views_controllers/professors/professors.html',
-        controller: 'ProfessorsController',
-        controllerAs: 'prof'
-      })
+      url: '/professors',
+      templateUrl: 'app/views_controllers/professors/professors.html',
+      controller: 'ProfessorsController',
+      controllerAs: 'prof'
+    })
+    .state('professorDetails', {
+      url: '/professorDetails',
+      templateUrl: 'app/views_controllers/professors/professorDetails/professorDetails.html',
+      controller: 'ProfessorDetailsController',
+      controllerAs: 'profDetail'
+    })
+    .state('clubs', {
+      url: '/clubs',
+      templateUrl: 'app/views_controllers/clubs/clubs.html',
+      controller: 'ClubsController',
+      controllerAs: 'clubsCtrl'
+    })
+    .state('internships', {
+      url: '/internships',
+      templateUrl: 'app/views_controllers/internships/internships.html',
+      controller: 'InternshipsController',
+      controllerAs: 'internCtrl'
+    })
 
   ;
 

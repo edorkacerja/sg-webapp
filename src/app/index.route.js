@@ -26,7 +26,7 @@ export function routerConfig($stateProvider, $urlRouterProvider) {
       controllerAs: 'prof'
     })
     .state('professorDetails', {
-      url: '/professorDetails',
+      url: '/professors/:professorId',
       templateUrl: 'app/views_controllers/professors/professorDetails/professorDetails.html',
       controller: 'ProfessorDetailsController',
       controllerAs: 'profDetail'

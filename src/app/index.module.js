@@ -17,6 +17,7 @@ import { AuthService } from './services/auth.service';
 import { AddTeamMemberService } from './services/addTeamMember.service';
 import { WebDevTecService } from '../app/components/webDevTec/webDevTec.service';
 import { NavbarDirective } from '../app/components/navbar/navbar.directive';
+import { MenuButtonDirective } from '../app/components/menuButton/menuButton.directive';
 import { NavbarTopDirective } from '../app/components/navbar/navbarTop.directive';
 import { MalarkeyDirective } from '../app/components/malarkey/malarkey.directive';
 
@@ -42,5 +43,6 @@ angular.module('sg', ['ngAnimate', 'angularModalService', 'ngSanitize', 'ngResou
   .controller('AddProfessorController', AddProfessorController)
   .controller('ProfessorDetailsController', ProfessorDetailsController)
   .directive('acmeNavbar', NavbarDirective)
+  .directive('menuButton', MenuButtonDirective)
   .directive('topNavbar', NavbarTopDirective)
   .directive('acmeMalarkey', MalarkeyDirective);

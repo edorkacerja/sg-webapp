@@ -102,6 +102,12 @@ export class TeamController {
       this.teamMembers.splice(index, 1);
   }
 
+  toggleSideNavbar(){
+    $("#menu-toggle").click(function(e) {
+      e.preventDefault();
+      $("#wrapper").toggleClass("toggled");
+    });
+  }
 
 
 }

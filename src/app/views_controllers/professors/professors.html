@@ -10,6 +10,11 @@
             <h1>Bonev = Flash</h1>
 
 
+            <menu-button></menu-button>
+            <div class="form-group">
+              <input type="text" class="form-control" ng-model="prof.searchBox" placeholder="Search">
+            </div>
+
             <ul class="media-list" tab-pane fade in active>
               <ul class="nav nav-tabs" role="tablist">
                 <li role="presentation" ng-class="{active:isSelected(1)}">
@@ -29,7 +34,7 @@
                   <ul>
                     <button ng-click="prof.addProfessor()"> Add Professor</button>
 
-                    <li class="media" ng-repeat="professor in prof.getProfessors() | filter: prof.filtText" ui-sref="professorDetails({professorId: professor.id})">
+                    <li class="media" ng-repeat="professor in prof.getProfessors() | filter: prof.filtText |filter:prof.searchBox" ui-sref="professorDetails({professorId: professor.id})">
 
                       <form ng-show="!editing" ng-submit="editing = true">
 

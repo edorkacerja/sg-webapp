@@ -11,12 +11,24 @@
             <h1>Team View</h1>
 
 
+            <div class="row">
+              <menu-button></menu-button>
+              <div class="col-md-4">
+
+                  <div class="form-group">
+                    <input type="text" class="form-control" ng-model="team.searchBox" placeholder="Search">
+                  </div>
+              </div>
+              <div class="col-md-4">
+                <button ng-click="team.addMember()"> Add Team Member</button>
+              </div>
+            </div>
             <div id="team">
               <div>
-                <ul>
-                  <button ng-click="team.addMember()"> Add Team Member </button>
 
-                  <li ng-repeat="member in team.getTeam()">
+                <ul>
+
+                  <li ng-repeat="member in team.getTeam() | filter:team.searchBox">
 
                     <form ng-show="!editing" ng-submit="editing = true">
 
@@ -25,11 +37,8 @@
                       <h3>{{ member.name}}</h3>
 
                       <p>{{member.description}}</p>
-                      <button ng-hide="editing" type="submit" class="btn btn-primary pull-right" >Edit</button>
+                      <button ng-hide="editing" type="submit" class="btn btn-primary pull-right">Edit</button>
                     </form>
-
-
-
 
 
                     <form ng-show="editing" ng-submit="editing = false">
@@ -39,7 +48,8 @@
                       <input type="text" ng-model="member.description" placeholder="Description" ng-required/>
                       <br/>
                       <button class="btn btn-success" type="submit">Save</button>
-                      <button class="btn btn-danger" type="button" ng-click="team.deleteTeamMember(member)">Delete</button>
+                      <button class="btn btn-danger" type="button" ng-click="team.deleteTeamMember(member)">Delete
+                      </button>
                     </form>
 
 

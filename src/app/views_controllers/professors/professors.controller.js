@@ -13,6 +13,13 @@ export class ProfessorsController {
     this.filtText = '';
     this.tab = 1;
 
+
+    this.filteredTodos = [];
+    this.currentPage = 1;
+    this.numPerPage = 10;
+    this.maxSize = 5;
+
+
     this.professorsArray = [
       {
         name: "edor",
@@ -63,13 +70,13 @@ export class ProfessorsController {
         department: "cos"
       },
       {
-        name: "edor",
+        name: "9edor",
         id: "9",
         description: "edor has big balls",
         department: "cos"
       },
       {
-        name: "teo",
+        name: "10teo",
         id: "10",
         description: "teo e gay",
         department: "cos"
@@ -88,9 +95,17 @@ export class ProfessorsController {
       }
     ];
 
+    this.$scope.$watch('currentPage', this.pageChanged());
+
+
   }
 
 
+
+  pageChanged() {
+    var begin = ((this.currentPage - 1) * this.numPerPage), end = begin + this.numPerPage;
+    this.filteredTodos = this.professorsArray.slice(begin, end);
+  }
 
 
 

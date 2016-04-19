@@ -12,6 +12,7 @@ import { InternshipsController } from './views_controllers/internships/internshi
 import { AddTeamMemberController } from './views_controllers/team/addTeamMember/addTeamMember.controller';
 import { AddProfessorController } from './views_controllers/professors/addProfessor/addProfessor.controller';
 import { ProfessorDetailsController } from './views_controllers/professors/professorDetails/professorDetails.controller';
+import { ClubDetailsController } from './views_controllers/clubs/clubDetails/clubDetails.controller';
 import { GithubContributorService } from '../app/components/githubContributor/githubContributor.service';
 import { AuthService } from './services/auth.service';
 import { AddTeamMemberService } from './services/addTeamMember.service';
@@ -42,6 +43,7 @@ angular.module('sg', ['ngAnimate', 'angularModalService', 'ngSanitize', 'ngResou
   .controller('AddTeamMemberController', AddTeamMemberController)
   .controller('AddProfessorController', AddProfessorController)
   .controller('ProfessorDetailsController', ProfessorDetailsController)
+  .controller('ClubDetailsController', ClubDetailsController)
   .directive('acmeNavbar', NavbarDirective)
   .directive('menuButton', MenuButtonDirective)
   .directive('topNavbar', NavbarTopDirective)

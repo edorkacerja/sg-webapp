@@ -37,6 +37,12 @@ export function routerConfig($stateProvider, $urlRouterProvider) {
       controller: 'ClubsController',
       controllerAs: 'clubsCtrl'
     })
+    .state('clubDetails', {
+      url: '/clubs/:clubId',
+      templateUrl: 'app/views_controllers/clubs/clubDetails/clubDetails.html',
+      controller: 'ClubDetailsController',
+      controllerAs: 'clubDetail'
+    })
     .state('internships', {
       url: '/internships',
       templateUrl: 'app/views_controllers/internships/internships.html',

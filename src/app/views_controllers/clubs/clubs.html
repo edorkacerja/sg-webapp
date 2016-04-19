@@ -10,101 +10,20 @@
           clubs view
         </div>
 
-        <div class="row">
-          <div class="col-md-4"><img src="http://lorempixum.com/100/100/nature/1"></div>
-          <div class="col-md-4"><img src="http://lorempixum.com/100/100/nature/1"></div>
-          <div class="col-md-4"><img src="http://lorempixum.com/100/100/nature/1"></div>
-          <div class="col-md-4"><img src="http://lorempixum.com/100/100/nature/1"></div>
-          <div class="col-md-4"><img src="http://lorempixum.com/100/100/nature/1"></div>
-          <div class="col-md-4"><img src="http://lorempixum.com/100/100/nature/1"></div>
-          <div class="col-md-4"><img src="http://lorempixum.com/100/100/nature/1"></div>
-          <div class="col-md-4"><img src="http://lorempixum.com/100/100/nature/1"></div>
-          <div class="col-md-4"><img src="http://lorempixum.com/100/100/nature/1"></div>
-          <div class="col-md-4"><img src="http://lorempixum.com/100/100/nature/1"></div>
-          <div class="col-md-4"><img src="http://lorempixum.com/100/100/nature/1"></div>
-          <div class="col-md-4"><img src="http://lorempixum.com/100/100/nature/1"></div>
+        <div class="row" id="clubs">
+          <h1>Clubs</h1>
+
+
+        <div class="hover04  row">
+          <div ui-sref="clubDetails({clubId: club.id})" class="col-md-4" ng-repeat="club in clubsCtrl.clubsArray">
+            <figure><img src="http://nxworld.net/codepen/css-image-hover-effects/pic03.jpg" /></figure>
+            <span>{{ club.name }}</span>
+          </div>
+
         </div>
 
 
-
-
-
-
-        <!-- Portfolio Grid Section -->
-        <section id="portfolio">
-          <div class="container">
-            <div class="row">
-              <div class="col-lg-12 text-center">
-                <h2>Clubs</h2>
-                <hr class="star-primary">
-              </div>
-            </div>
-            <div class="row">
-              <div class="col-sm-4 portfolio-item">
-                <a href="#" class="portfolio-link" data-toggle="modal">
-                  <div class="caption">
-                    <div class="caption-content">
-                      <i class="fa fa-search-plus fa-3x"></i>
-                    </div>
-                  </div>
-                  <img src="http://lorempixum.com/100/100/nature/1" class="img-responsive" alt="">
-                </a>
-              </div>
-              <div class="col-sm-4 portfolio-item">
-                <a href="#" class="portfolio-link" data-toggle="modal">
-                  <div class="caption">
-                    <div class="caption-content">
-                      <i class="fa fa-search-plus fa-3x"></i>
-                    </div>
-                  </div>
-                  <img src="http://lorempixum.com/100/100/nature/1" class="img-responsive" alt="">
-                </a>
-              </div>
-              <div class="col-sm-4 portfolio-item">
-                <a href="#" class="portfolio-link" data-toggle="modal">
-                  <div class="caption">
-                    <div class="caption-content">
-                      <i class="fa fa-search-plus fa-3x"></i>
-                    </div>
-                  </div>
-                  <img src="http://lorempixum.com/100/100/nature/1" class="img-responsive" alt="">
-                </a>
-              </div>
-              <div class="col-sm-4 portfolio-item">
-                <a href="#" class="portfolio-link" data-toggle="modal">
-                  <div class="caption">
-                    <div class="caption-content">
-                      <i class="fa fa-search-plus fa-3x"></i>
-                    </div>
-                  </div>
-                  <img src="http://lorempixum.com/100/100/nature/1" class="img-responsive" alt="">
-                </a>
-              </div>
-              <div class="col-sm-4 portfolio-item">
-                <a href="#" class="portfolio-link" data-toggle="modal">
-                  <div class="caption">
-                    <div class="caption-content">
-                      <i class="fa fa-search-plus fa-3x"></i>
-                    </div>
-                  </div>
-                  <img src="http://lorempixum.com/100/100/nature/1" class="img-responsive" alt="">
-                </a>
-              </div>
-              <div class="col-sm-4 portfolio-item">
-                <a href="#" class="portfolio-link" data-toggle="modal">
-                  <div class="caption">
-                    <div class="caption-content">
-                      <i class="fa fa-search-plus fa-3x"></i>
-                    </div>
-                  </div>
-                  <img src="http://lorempixum.com/100/100/nature/1" class="img-responsive" alt="">
-                </a>
-              </div>
-            </div>
-          </div>
-        </section>
-
-
+        </div>
 
 
 

@@ -10,7 +10,9 @@ import { LoginController } from './views_controllers/users/login.controller';
 import { ClubsController } from './views_controllers/clubs/clubs.controller';
 import { InternshipsController } from './views_controllers/internships/internships.controller';
 import { AddTeamMemberController } from './views_controllers/team/addTeamMember/addTeamMember.controller';
+import { AddClubController } from './views_controllers/clubs/addClub/addClub.controller';
 import { AddProfessorController } from './views_controllers/professors/addProfessor/addProfessor.controller';
+import { AddInternshipController } from './views_controllers/internships/addInternship/addInternship.controller';
 import { ProfessorDetailsController } from './views_controllers/professors/professorDetails/professorDetails.controller';
 import { ClubDetailsController } from './views_controllers/clubs/clubDetails/clubDetails.controller';
 import { GithubContributorService } from '../app/components/githubContributor/githubContributor.service';
@@ -42,6 +44,8 @@ angular.module('sg', ['ngAnimate', 'angularModalService', 'ngSanitize', 'ngResou
   .controller('ClubsController', ClubsController)
   .controller('AddTeamMemberController', AddTeamMemberController)
   .controller('AddProfessorController', AddProfessorController)
+  .controller('AddClubController', AddClubController)
+  .controller('AddInternshipController', AddInternshipController)
   .controller('ProfessorDetailsController', ProfessorDetailsController)
   .controller('ClubDetailsController', ClubDetailsController)
   .directive('acmeNavbar', NavbarDirective)

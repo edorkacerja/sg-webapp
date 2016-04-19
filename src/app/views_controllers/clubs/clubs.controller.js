@@ -4,8 +4,9 @@
 
 export class ClubsController {
 
-  constructor() {
+  constructor($modal) {
     'ngInject';
+    this.$modal = $modal;
 
 
     //this.$modalInstance = $modalInstance;
@@ -71,6 +72,17 @@ export class ClubsController {
   }
 
 
+  addClub() {
+
+    this.$modal.open({
+      animation: true,
+      templateUrl: 'app/views_controllers/clubs/addClub/addClub.html',
+      controller: 'AddClubController',
+      controllerAs: 'acc',
+      size: 'md'
+    });
+
+  }
 
 
 

@@ -6,22 +6,46 @@
     <div id="page-content-wrapper">
       <div class="container-fluid">
 
-        <div class="row">
-          <div class="col-md-4">
-            <img src="http://nxworld.net/codepen/css-image-hover-effects/pic03.jpg" alt="">
+        <button ui-sref="clubs" class="btn btn-default"> back to clubs</button>
+
+        <form ng-show="!editing" ng-submit="editing = true">
+
+          <div class="row">
+            <div class="col-md-4">
+              <img src="http://nxworld.net/codepen/css-image-hover-effects/pic03.jpg" alt="">
+            </div>
+
+            <div class="col-md-6">
+              <h1> {{  }} something</h1>
+
+              <p> President: {{  }} the rosen plevneyev</p>
+
+              <p> Professor: {{  }} advisor of the club </p>
+            </div>
           </div>
+          <button type="submit" class="btn btn-primary pull-right">Edit</button>
 
-          <div class="col-md-6">
-            Professor Name
-          </div>
-        </div>
+        </form>
+
+        <form ng-show="editing" ng-submit="editing = false">
+          <label>Name of the club:</label>
+          <input type="text" ng-model="" placeholder="Name" ng-required/>
+          <label>President of the club:</label>
+          <input type="text" ng-model="" placeholder="President" ng-required/>
+          <label>Professor:</label>
+          <input type="text" ng-model="" placeholder="Professor" ng-required/>
+          <label>Description of the club:</label>
+          <input type="text" ng-model="" placeholder="Description" ng-required/>
+          <br/>
+          <button class="btn btn-success" type="submit">Save</button>
+          <button class="btn btn-danger" type="button" ng-click="">
+            Delete
+          </button>
+        </form>
 
 
-        <button ng-hide="editing" type="submit" class="btn btn-primary pull-right">Edit</button>
 
 
-
-        clubs details view
 
 
       </div>

@@ -5,9 +5,57 @@
     <!-- Page Content -->
     <div id="page-content-wrapper">
       <div class="container-fluid">
-        <menu-button></menu-button>
 
-        internships view
+        <div class="row">
+          <menu-button></menu-button>
+          <div class="col-md-4">
+
+            <div class="form-group">
+              <input type="text" class="form-control" ng-model="internCtrl.searchBox" placeholder="Search">
+            </div>
+          </div>
+          <div class="col-md-4">
+            <button ng-click="internCtrl.addInternship()"> Add Internship</button>
+          </div>
+        </div>
+
+
+        <div id="team">
+          <div>
+            <ul>
+
+              <li ng-repeat="internship in internCtrl.internshipsArray">
+
+                <form ng-show="!editing" ng-submit="editing = true">
+                  <img src="http://lorempixum.com/100/100/nature/1">
+
+                  <h3>{{ internship.name}}</h3>
+
+                  <p>{{ internship.description}}</p>
+                  <button ng-hide="editing" type="submit" class="btn btn-primary pull-right">Edit</button>
+                </form>
+
+
+                <form ng-show="editing" ng-submit="editing = false">
+                  <label>Name:</label>
+                  <input type="text" ng-model="member.name" placeholder="Name" ng-required/>
+                  <label>Description:</label>
+                  <input type="text" ng-model="member.description" placeholder="Description" ng-required/>
+                  <br/>
+                  <button class="btn btn-success" type="submit">Save</button>
+                  <button class="btn btn-danger" type="button" ng-click="team.deleteTeamMember(member)">Delete
+                  </button>
+                </form>
+
+
+              </li>
+
+
+            </ul>
+          </div>
+        </div><!-- team finish -->
+
+
 
       </div>
     </div>

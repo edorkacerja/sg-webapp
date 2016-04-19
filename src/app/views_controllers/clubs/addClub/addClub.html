@@ -1,0 +1,38 @@
+
+<div class="modal-header">
+  <h3 class="modal-title">Registration Form</h3>
+</div>
+<form name="acc.registrationForm" role="form" ng-submit="acc.register(acc.user)" novalidate>
+  <div class="modal-body">
+    <div class="form-group row" ng-class="{ 'has-error' : acc.registrationForm.name.$error.required && acc.registrationForm.name.$dirty }">
+      <label class="col-md-2 control-label" for="name">Name</label>
+      <div class="col-md-10">
+        <input type="text" ng-model="acc.user.name" class="form-control" name="name" id="name" placeholder="name" required>
+        <span ng-show="acc.registrationForm.name.$error.required  && !acc.registrationForm.name.$pristine" class="help-block">Please enter your name!</span>
+      </div>
+    </div>
+
+    <div class="form-group row"  ng-class="{ 'has-error' : acc.registrationForm.president.$error.required && acc.registrationForm.president.$dirty }">
+      <label class="col-md-2 control-label" for="president">President</label>
+      <div class="col-md-10">
+        <input type="text" ng-model="acc.user.president" class="form-control" id="president" name="president" placeholder="President of the Club" required>
+        <span ng-show="acc.registrationForm.president.$error.required  && !acc.registrationForm.president.$pristine" class="help-block">Please enter the president's name!</span>
+      </div>
+    </div>
+
+    <div class="form-group row"  ng-class="{ 'has-error' : acc.registrationForm.professorId.$error.required && acc.registrationForm.professorId.$dirty }">
+      <label class="col-md-2 control-label" for="professorId">Professor ID</label>
+      <div class="col-md-10">
+        <input type="text" ng-model="acc.user.professorId" class="form-control" id="professorId" name="professorId" placeholder="Professor ID" required>
+        <span ng-show="acc.registrationForm.professorId.$error.required  && !acc.registrationForm.professorId.$pristine" class="help-block">Please enter the professor's ID!</span>
+      </div>
+    </div>
+
+
+
+  </div>
+  <div class="modal-footer">
+    <button class="btn btn-primary" ng-disabled="acc.registrationForm.$invalid" type="submit" >Register</button>
+    <button class="btn btn-warning" type="button" ng-click="acc.cancel()">Cancel</button>
+  </div>
+</form>

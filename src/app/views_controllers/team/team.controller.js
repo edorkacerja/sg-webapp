@@ -10,66 +10,93 @@ export class TeamController {
 
     //this.$modalInstance = $modalInstance;
     this.$scope = $scope;
+
+
+    this.filteredTodos = [];
+    this.currentPage = 1;
+    this.numPerPage = 10;
+    this.maxSize = 5;
+
+
+
+
+
     this.$scope.$on('memberAdded', this.memberAdded());
     this.$modal = $modal;
     this.teamMembers = [
       {
         name: "edor",
-        description: "edor has big balls"
+        description: "1edor has big balls"
       },
       {
         name: "teo",
-        description: "teo e gay"
+        description: "2teo e gay"
       },
       {
         name: "edor",
-        description: "edor has big balls"
+        description: "3edor has big balls"
       },
       {
         name: "teo",
-        description: "teo e gay"
+        description: "4teo e gay"
       },
       {
         name: "edor",
-        description: "edor has big balls"
+        description: "5edor has big balls"
       },
       {
         name: "teo",
-        description: "teo e gay"
+        description: "6teo e gay"
       },
       {
         name: "edor",
-        description: "edor has big balls"
+        description: "7edor has big balls"
       },
       {
         name: "teo",
-        description: "teo e gay"
+        description: "8teo e gay"
       },
       {
         name: "edor",
-        description: "edor has big balls"
+        description: "9edor has big balls"
       },
       {
         name: "teo",
-        description: "teo e gay"
+        description: "10teo e gay"
       },
       {
         name: "edor",
-        description: "edor has big balls"
+        description: "11edor has big balls"
       },
       {
         name: "teo",
-        description: "teo e gay"
+        description: "12teo e gay"
+      },
+      {
+        name: "teo",
+        description: "13teo e gay"
+      },
+      {
+        name: "teo",
+        description: "14teo e gay"
+      },
+      {
+        name: "teo",
+        description: "15teo e gay"
       }
     ];
 
+    this.$scope.$watch('currentPage', this.pageChanged());
 
   }
 
+  pageChanged() {
+      var begin = ((this.currentPage - 1) * this.numPerPage), end = begin + this.numPerPage;
+      this.filteredTodos = this.teamMembers.slice(begin, end);
+  }
 
 
   getTeam() {
-
     return this.teamMembers;
   }
 
@@ -102,12 +129,18 @@ export class TeamController {
       this.teamMembers.splice(index, 1);
   }
 
+
   toggleSideNavbar(){
     $("#menu-toggle").click(function(e) {
       e.preventDefault();
       $("#wrapper").toggleClass("toggled");
     });
   }
+
+
+  //pagination
+
+
 
 
 }

@@ -63,7 +63,7 @@
             <!--pagination-->
             <pagination
               ng-model="team.currentPage"
-              total-items="team.teamMembers.length"
+              total-items="(team.teamMembers | filter:team.searchBox).length"
               max-size="team.maxSize"
               boundary-links="true"
               ng-change="team.pageChanged()">

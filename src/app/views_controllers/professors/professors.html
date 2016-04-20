@@ -97,7 +97,7 @@
             <!--pagination-->
             <pagination
               ng-model="prof.currentPage"
-              total-items="prof.professorsArray.length"
+              total-items="(prof.professorsArray | filter: prof.filtText |filter:prof.searchBox).length"
               max-size="prof.maxSize"
               boundary-links="true"
               ng-change="prof.pageChanged()">

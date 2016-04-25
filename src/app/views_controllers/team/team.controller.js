@@ -1,7 +1,6 @@
 /**
  * Created by AcerPC on 3/31/2016.
  */
-
 export class TeamController {
 
   constructor($modal, $scope) {
@@ -10,7 +9,6 @@ export class TeamController {
 
     //this.$modalInstance = $modalInstance;
     this.$scope = $scope;
-
 
     this.filteredTodos = [];
     this.currentPage = 1;
@@ -86,6 +84,7 @@ export class TeamController {
       }
     ];
 
+
     this.$scope.$watch('currentPage', this.pageChanged());
 
   }
@@ -117,6 +116,8 @@ export class TeamController {
 
 
   memberAdded(){
+
+
     return (event, data) => {
       console.log(data);
       this.teamMembers.push(data);

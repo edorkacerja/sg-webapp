@@ -18,6 +18,7 @@ import { ClubDetailsController } from './views_controllers/clubs/clubDetails/clu
 import { GithubContributorService } from '../app/components/githubContributor/githubContributor.service';
 import { AuthService } from './services/auth.service';
 import { AddTeamMemberService } from './services/addTeamMember.service';
+import { ProfessorsService } from './services/professors.service';
 import { WebDevTecService } from '../app/components/webDevTec/webDevTec.service';
 import { NavbarDirective } from '../app/components/navbar/navbar.directive';
 import { MenuButtonDirective } from '../app/components/menuButton/menuButton.directive';
@@ -36,6 +37,7 @@ angular.module('sg', ['ngAnimate', 'angularModalService', 'ngSanitize', 'ngResou
   .service('webDevTec', WebDevTecService)
   .service('AuthService', AuthService)
   .service('AddTeamMemberService', AddTeamMemberService)
+  .service('ProfessorsService', ProfessorsService)
   .controller('MainController', MainController)
   .controller('TeamController', TeamController)
   .controller('ProfessorsController', ProfessorsController)

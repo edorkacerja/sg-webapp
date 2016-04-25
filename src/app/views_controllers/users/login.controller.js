@@ -1,13 +1,20 @@
 /**
  * Created by AcerPC on 3/31/2016.
  */
+const SCOPE = new WeakMap();
+const STATE = new WeakMap();
+const TOASTR = new WeakMap();
+
 export class LoginController {
-  constructor ($state, toastr, AuthService) {
+  constructor ($state, toastr, AuthService, $scope) {
     'ngInject';
 
+    SCOPE.set(this, $scope);
     this.AuthService = AuthService;
     this.toastr = toastr;
     this.$state = $state;
+    STATE.set(this, $state);
+    TOASTR.set(this, toastr);
 
 
     /** @ngInject */
@@ -19,23 +26,17 @@ export class LoginController {
 
   login(user){
 
-    var self = this;
 
-    this.AuthService.login(user).then(
-      function(result) {
+    this.AuthService.login(user).then( result => {
 
-        console.log(result);
-        self.$state.go('home');
-        self.toastr.success("Влязохте успешно!" );
-      },
-      function(error) {
-        self.toastr.error("didnt work, but try again until your fingers bleed");
-        //this.errorMessage = error.data.error_description;
+        //console.log(result);
+        STATE.get(this).go('home');
+        TOASTR.get(this).success("Влязохте успешно!");
+
       }
-
     );
 
-    console.log(user);
+    //console.log(user);
   }
 
 

@@ -4,8 +4,9 @@
 
 export class ProfessorsController {
 
-  constructor($modal, $scope) {
+  constructor($modal, $scope, ProfessorsService) {
     'ngInject';
+    this.ProfessorsService = ProfessorsService;
     this.$scope = $scope;
     this.$modal = $modal;
     //this.$modalInstance = $modalInstance;
@@ -20,80 +21,7 @@ export class ProfessorsController {
     this.maxSize = 5;
 
 
-    this.professorsArray = [
-      {
-        name: "edor",
-        id: "1",
-        description: "edor has big balls cos dept",
-        department: "cos"
-      },
-      {
-        name: "teo",
-        id: "2",
-        description: "bus department",
-        department: "bus"
-      },
-      {
-        name: "edor",
-        id: "3",
-        description: "edor eco department has big balls",
-        department: "eco"
-      },
-      {
-        name: "teo",
-        id: "4",
-        description: "teo e gay",
-        department: "cos"
-      },
-      {
-        name: "edor",
-        id: "5",
-        description: "edor has big balls",
-        department: "cos"
-      },
-      {
-        name: "teo",
-        id: "6",
-        description: "teo e gay",
-        department: "cos"
-      },
-      {
-        name: "edor",
-        id: "7",
-        description: "edor has big balls",
-        department: "cos"
-      },
-      {
-        name: "teo",
-        id: "8",
-        description: "teo e gay",
-        department: "cos"
-      },
-      {
-        name: "9edor",
-        id: "9",
-        description: "edor has big balls",
-        department: "cos"
-      },
-      {
-        name: "10teo",
-        id: "10",
-        description: "teo e gay",
-        department: "cos"
-      },
-      {
-        name: "edor",
-        id: "11",
-        description: "edor has big balls",
-        department: "mat"
-      },
-      {
-        name: "teo",
-        id: "12",
-        description: "teo e gay",
-        department: "inf"
-      }
-    ];
+    this.professorsArray = [];
 
     this.$scope.$watch('currentPage', this.pageChanged());
 
@@ -152,7 +80,7 @@ export class ProfessorsController {
   }
 
   getProfessors(){
-    return this.professorsArray;
+
   }
 
   deleteProfessor(professor){

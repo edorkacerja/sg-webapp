@@ -1,4 +1,9 @@
+const Q = new WeakMap();
+const HTTP = new WeakMap();
+const USERINFO = new WeakMap();
+
 export class AuthService {
+
   constructor($http, $window ,  $q , api , $rootScope) {
     'ngInject';
 
@@ -6,44 +11,66 @@ export class AuthService {
     this.$http = $http;
     this.api = api;
     this.userInfo = {};
+    USERINFO.set(this, this.userInfo);
+
     this.$q = $q;
-    //this.userInfo;
+    Q.set(this, $q);
+    HTTP.set(this, $http);
     this.$rootScope = $rootScope;
   }
 
   //LOG IN
   login(user) {
 
-  var deferred = this.$q.defer();
-  this.$http.post(this.api+"v1/admins_sessions", user)
+    var deferred = this.$q.defer();
+
+    //console.log(Q);
+    //return Q.get(UniqueBookTitle.instance)((resolve, reject) => {
+    //  SERVICE.get(UniqueBookTitle.instance).checkIfBookExists(value).then( result => {
+    //    if(result){
+    //      reject();
+    //    }
+    //    else{
+    //      resolve();
+    //    }
+    //  });
+    //});
+
+  HTTP.get(this).post(this.api+"v1/admins_sessions", user)
     .then(
-    function(response) {
+    response => {
 
       if(response.status == 200) {
         console.log(response);
 
-        //this.userInfo = {//generate an access token on the server for the user
-          //accessToken: response.data.access_token,
-        //  userName: response.data.userName,
-        //  userRoles: response.data.userRoles.split(',')
-        //};
-        //this.$rootScope.$emit('user:loggedin', userInfo); //broadcast to all controllers that  the user has logged in
+
+        this.userInfo = {//generate an access token on the server for the user
+          accessToken: response.data.extract.auth_token
+          //userName: response.data.userName,
+        };
+
+        console.log("------------");
+        console.log(this.userInfo);
+        this.$rootScope.$emit('user:loggedin', this.userInfo); //broadcast to all controllers that  the user has logged in
         //this.$window.sessionStorage["userInfo"] = JSON.stringify(userInfo);//store the data on the client
         deferred.resolve();
       } else {
         deferred.reject(response);
       }
-    },
-    function(error) {
-      deferred.reject(error);
+
     });
+
+    //  ,
+    //function(error) {
+    //  deferred.reject(error);
+    //});
 
   return deferred.promise;
 };
 
 ////LOG OUT
 //  logout() {
-//  var deferred = this.$q.defer();
+//  var deferred = Q.defer();
 //  this.$http({
 //    url: this.api + '/account/logout' ,
 //    method: 'POST',
@@ -62,7 +89,7 @@ export class AuthService {
 //
 ////REGISTER
 //  register(user) { //todo modify when api is ready
-//  var deferred = this.$q.defer();
+//  var deferred = Q.defer();
 //  this.$http.post( this.api +"/account/register", {"First_Name": user.first_name, "Last_Name": user.last_name, "Email": user.email , "Password": user.password , "ConfirmPassword": user.confirmPassword })
 //    .then(
 //      function() {

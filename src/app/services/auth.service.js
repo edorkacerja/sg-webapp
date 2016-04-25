@@ -46,13 +46,12 @@ export class AuthService {
 
         this.userInfo = {//generate an access token on the server for the user
           accessToken: response.data.extract.auth_token
-          //userName: response.data.userName,
         };
 
         console.log("------------");
         console.log(this.userInfo);
         this.$rootScope.$emit('user:loggedin', this.userInfo); //broadcast to all controllers that  the user has logged in
-        //this.$window.sessionStorage["userInfo"] = JSON.stringify(userInfo);//store the data on the client
+        this.$window.sessionStorage["userInfo"] = JSON.stringify(this.userInfo);//store the data on the client
         deferred.resolve();
       } else {
         deferred.reject(response);
@@ -60,10 +59,6 @@ export class AuthService {
 
     });
 
-    //  ,
-    //function(error) {
-    //  deferred.reject(error);
-    //});
 
   return deferred.promise;
 };

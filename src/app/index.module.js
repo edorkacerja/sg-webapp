@@ -19,6 +19,7 @@ import { GithubContributorService } from '../app/components/githubContributor/gi
 import { AuthService } from './services/auth.service';
 import { AddTeamMemberService } from './services/addTeamMember.service';
 import { ProfessorsService } from './services/professors.service';
+import { AuthInterceptor } from './services/authInterceptor.service';
 import { WebDevTecService } from '../app/components/webDevTec/webDevTec.service';
 import { NavbarDirective } from '../app/components/navbar/navbar.directive';
 import { MenuButtonDirective } from '../app/components/menuButton/menuButton.directive';
@@ -38,6 +39,7 @@ angular.module('sg', ['ngAnimate', 'angularModalService', 'ngSanitize', 'ngResou
   .service('AuthService', AuthService)
   .service('AddTeamMemberService', AddTeamMemberService)
   .service('ProfessorsService', ProfessorsService)
+  .service('AuthInterceptor', AuthInterceptor)
   .controller('MainController', MainController)
   .controller('TeamController', TeamController)
   .controller('ProfessorsController', ProfessorsController)

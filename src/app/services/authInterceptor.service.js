@@ -1,41 +1,38 @@
 const Q = new WeakMap();
 const WINDOW = new WeakMap();
-let self;
+var edor = {};
 
 export class AuthInterceptor {
 
   constructor($q, $window) {
 
     'ngInject';
-    self = this;
     this.$q = $q;
     this.$window = $window;
 
-    Q.set(this, $q);
-    WINDOW.set(this, $window);
+    Q.set(edor, $q);
+    WINDOW.set(edor, $window);
 
   }
 
 
   request(config) {
     config.headers = config.headers || {};
-    if (self.$window.sessionStorage["userInfo"] == "null" || self.$window.sessionStorage["userInfo"] == undefined) {
+    if (WINDOW.get(edor).sessionStorage["userInfo"] == "null" || WINDOW.get(edor).sessionStorage["userInfo"] == undefined) {
     } else {
-      config.headers.Authorization = JSON.parse(self.$window.sessionStorage["userInfo"]).accessToken;
+      config.headers.Authorization = JSON.parse(WINDOW.get(edor).sessionStorage["userInfo"]).accessToken;
     }
-
-
     return config;
   }
 
 
   response(response) {
-    return response || this.$q.when(response);
+    return response || Q.get(edor).when(response);
   }
 
 
   responseError(rejection) {
-    return this.$q.reject(rejection);
+    return Q.get(edor).reject(rejection);
 
   }
 

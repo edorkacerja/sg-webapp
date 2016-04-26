@@ -22,19 +22,8 @@ export class AuthService {
   //LOG IN
   login(user) {
 
-    var deferred = this.$q.defer();
+    var deferred = Q.get(this).defer();
 
-    //console.log(Q);
-    //return Q.get(UniqueBookTitle.instance)((resolve, reject) => {
-    //  SERVICE.get(UniqueBookTitle.instance).checkIfBookExists(value).then( result => {
-    //    if(result){
-    //      reject();
-    //    }
-    //    else{
-    //      resolve();
-    //    }
-    //  });
-    //});
 
   HTTP.get(this).post(this.api+"v1/admins_sessions", user)
     .then(
@@ -59,14 +48,17 @@ export class AuthService {
 
     });
 
-
   return deferred.promise;
 };
 
-////LOG OUT
+
+
+
+////LOG OUT todo: ask for endpoint?
 //  logout() {
-//  var deferred = Q.defer();
-//  this.$http({
+//  var deferred = Q.get(this).defer();
+//
+//  HTTP.get(this)({
 //    url: this.api + '/account/logout' ,
 //    method: 'POST',
 //    headers:  {'Authorization': 'Bearer '+  JSON.parse($window.sessionStorage["userInfo"]).accessToken }
@@ -80,8 +72,14 @@ export class AuthService {
 //  });
 //  return deferred.promise;
 //};
-//
-//
+
+
+
+
+
+
+
+
 ////REGISTER
 //  register(user) { //todo modify when api is ready
 //  var deferred = Q.defer();

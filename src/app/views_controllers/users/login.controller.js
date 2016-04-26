@@ -23,10 +23,8 @@ export class LoginController {
   }
 
 
-
+//------------------ LOGIN ------------------
   login(user){
-
-
     this.AuthService.login(user).then( result => {
 
         //console.log(result);
@@ -40,6 +38,11 @@ export class LoginController {
   }
 
 
+
+  //--------------- LOGOUT -------------------
+  logout(){
+
+  }
 
   register(regUser){
 
@@ -68,25 +71,6 @@ export class LoginController {
     this.classAnimation = '';
   }
 
-    //  //vm.login = function(user) {
-    //  //  auth.login(user).then(
-    //  //    function() {
-    //  //      $state.go('buildings');
-    //  //      toastr.success("Влязохте успешно!" );
-    //  //    },
-    //  //    function(error) {
-    //  //      toastr.error("Неуспешно влизане в системата" , error );
-    //  //      vm.errorMessage = error.data.error_description;
-    //  //    }
-    //  //  );
-    //  //
-    //  //}
-    //
-    //  //Handling the error message of form validation
-    //
-    //  //$('.message a').click(function () {
-    //  //  $('form').animate({height: "toggle", opacity: "toggle"}, "slow");
-    //  //});
 
 
 

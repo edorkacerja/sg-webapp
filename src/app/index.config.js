@@ -9,6 +9,7 @@ export function config ($logProvider, toastrConfig, $provide, $httpProvider) {
   toastrConfig.positionClass = 'toast-top-right';
   toastrConfig.preventDuplicates = true;
   toastrConfig.progressBar = true;
+
   //push the authInterceptor service
   //$provide.factory('authorizeInterceptor', AuthInterceptor.httpAuthFactory);
   $httpProvider.interceptors.push('AuthInterceptor');

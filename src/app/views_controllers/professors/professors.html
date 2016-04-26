@@ -40,16 +40,14 @@
               <div id="team">
                 <div>
                   <ul>
-
-
                     <li class="media"
-                        ng-repeat="professor in prof.filteredTodos | filter: prof.filtText |filter:prof.searchBox"
+                        ng-repeat="professor in prof.professorsArray | filter: prof.filtText |filter:prof.searchBox"
                         ui-sref="professorDetails({professorId: professor.id})">
 
                       <form ng-show="!editing" ng-submit="editing = true">
 
                         <div class="media-left media-middle">
-                          <img src="http://lorempixum.com/100/100/nature/1" class="media-object img-thumbnail">
+                          <img ng-src="{{ professor.photo }}" class="media-object img-thumbnail">
                         </div>
 
                         <div class="media-body">
@@ -95,13 +93,13 @@
             </ul>
 
             <!--pagination-->
-            <pagination
-              ng-model="prof.currentPage"
-              total-items="(prof.professorsArray | filter: prof.filtText |filter:prof.searchBox).length"
-              max-size="prof.maxSize"
-              boundary-links="true"
-              ng-change="prof.pageChanged()">
-            </pagination>
+            <!--<pagination-->
+              <!--ng-model="prof.currentPage"-->
+              <!--total-items="(prof.professorsArray | filter: prof.filtText |filter:prof.searchBox).length"-->
+              <!--max-size="prof.maxSize"-->
+              <!--boundary-links="true"-->
+              <!--ng-change="prof.pageChanged()">-->
+            <!--</pagination>-->
 
 
           </div>

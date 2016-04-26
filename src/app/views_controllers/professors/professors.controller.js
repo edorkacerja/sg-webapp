@@ -1,12 +1,17 @@
 /**
  * Created by AcerPC on 3/31/2016.
  */
+const SERVICE = new WeakMap();
+var edor = {};
+
 
 export class ProfessorsController {
 
   constructor($modal, $scope, ProfessorsService) {
     'ngInject';
     this.ProfessorsService = ProfessorsService;
+    SERVICE.set(edor, ProfessorsService);
+
     this.$scope = $scope;
     this.$modal = $modal;
     //this.$modalInstance = $modalInstance;
@@ -15,25 +20,23 @@ export class ProfessorsController {
     this.tab = 1;
 
 
+    this.getProfessors();
+
     this.filteredTodos = [];
     this.currentPage = 1;
     this.numPerPage = 10;
     this.maxSize = 5;
 
 
-    this.professorsArray = [];
-
-    this.$scope.$watch('currentPage', this.pageChanged());
-
-
+    //this.$scope.$watch('currentPage', this.pageChanged());
   }
 
 
-
-  pageChanged() {
-    var begin = ((this.currentPage - 1) * this.numPerPage), end = begin + this.numPerPage;
-    this.filteredTodos = this.professorsArray.slice(begin, end);
-  }
+  //
+  //pageChanged() {
+  //  var begin = ((this.currentPage - 1) * this.numPerPage), end = begin + this.numPerPage;
+  //  this.filteredTodos = this.professorsArray.slice(begin, end);
+  //}
 
 
 
@@ -79,9 +82,16 @@ export class ProfessorsController {
     };
   }
 
-  getProfessors(){
 
+  getProfessors(){
+    SERVICE.get(edor).submitNewMember().then( result => {
+      this.professorsArray = result;
+      //console.log(result);
+      console.log(this);
+    });
   }
+
+
 
   deleteProfessor(professor){
     var index = this.professorsArray.indexOf(professor);

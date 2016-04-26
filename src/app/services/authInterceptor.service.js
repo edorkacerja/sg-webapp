@@ -7,37 +7,37 @@ export class AuthInterceptor {
   constructor($q, $window) {
 
     'ngInject';
+    self = this;
     this.$q = $q;
     this.$window = $window;
 
     Q.set(this, $q);
     WINDOW.set(this, $window);
 
-    self=this;
   }
 
 
-//  request(config) {
-//  config.headers = config.headers || {};
-//  if(self.$window.sessionStorage["userInfo"] == "null" || self.$window.sessionStorage["userInfo"] == undefined) {
-//  } else{
-//    config.headers.Authorization = JSON.parse($window.sessionStorage["userInfo"]).accessToken;
-//  }
-//
-//
-//  return config;
-//}
-//
-//
-//  response(response) {
-//  return response || this.$q.when(response);
-//}
-//
-//
-//  responseError(rejection) {
-//  return this.$q.reject(rejection);
-//
-//}
+  request(config) {
+    config.headers = config.headers || {};
+    if (self.$window.sessionStorage["userInfo"] == "null" || self.$window.sessionStorage["userInfo"] == undefined) {
+    } else {
+      config.headers.Authorization = JSON.parse(self.$window.sessionStorage["userInfo"]).accessToken;
+    }
+
+
+    return config;
+  }
+
+
+  response(response) {
+    return response || this.$q.when(response);
+  }
+
+
+  responseError(rejection) {
+    return this.$q.reject(rejection);
+
+  }
 
   //static httpAuthFactory($q, $injector) {
   //  return new AuthInterceptor($q, $injector);

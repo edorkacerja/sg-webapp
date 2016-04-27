@@ -72,21 +72,21 @@ export class ProfessorsController {
       controllerAs: 'apr',
       size: 'md'
     });
-
   }
+
 
   professorAdded(){
     return (event, data) => {
       console.log(data);
-      this.professorsArray.push(data);
+      SERVICE.get(edor).addNewProfessor(data);
     };
   }
 
 
   getProfessors(){
-    SERVICE.get(edor).submitNewMember().then( result => {
+    var ads = SERVICE.get(edor).resource;
+    ads.query().$promise.then( result => {
       this.professorsArray = result;
-      //console.log(result);
       console.log(this);
     });
   }

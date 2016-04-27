@@ -1,8 +1,8 @@
 
 export class ProfessorsService {
-  constructor($resource, api, $http) {
+  constructor($resource, api) {
     'ngInject';
-    this.resource = $resource(api + 'v1/professors', null, {
+    this.resource = $resource(api + 'v1/professors/:professorId', {professorId: '@professorId'}, {
       get: {
         method: 'GET'
       },

@@ -7,24 +7,39 @@ export class ProfessorDetailsController {
     this.$scope = $scope;
     this.$stateParams = $stateParams;
     this.$modal = $modal;
-    SERVICE.set(this, ProfessorsService);
+    SERVICE.set(this, ProfessorsService.resource);
 
 
-    var profId = $stateParams.professorId;
-    console.log(profId);
-    console.log("----------------");
-    this.getProfessor();
-    console.log(this.$stateParams);
+
+    this.getProfessor(this.$stateParams.professorId);
   }
 
 
-
-  getProfessor(){
-    SERVICE.get(this).getProfessor(this.$stateParams.professorId).then( result => {
-      this.professorDetails= result;
+  getProfessor(professorId) {
+    SERVICE.get(this).get({professorId: professorId}).$promise.then(result => {
+      this.professorDetails = result;
+      console.log(result);
     });
   }
 
+
+  saveProfessorEditing(professorId) {
+    console.log('editing');
+    SERVICE.get(this).update({professorId: professorId}).$promise.then(() => {});
+  }
+
+  deleteProfessor(professorId){
+
+    this.$modal.open({
+      animation: true,
+      template: "<p> edor</p>",
+      controller: 'AddProfessorController',
+      controllerAs: 'apr',
+      size: 'md'
+    });
+
+    SERVICE.get(this).delete({professorId: professorId});
+  }
 
 
 }

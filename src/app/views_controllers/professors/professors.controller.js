@@ -9,12 +9,12 @@ export class ProfessorsController {
 
   constructor($modal, $scope, ProfessorsService) {
     'ngInject';
-    this.ProfessorsService = ProfessorsService;
-    SERVICE.set(edor, ProfessorsService);
+    SERVICE.set(edor, ProfessorsService.resource);
 
     this.$scope = $scope;
     this.$modal = $modal;
-    //this.$modalInstance = $modalInstance;
+
+
     this.$scope.$on('NewProfessorAdded', this.professorAdded());
     this.filtText = '';
     this.tab = 1;
@@ -84,8 +84,8 @@ export class ProfessorsController {
 
 
   getProfessors(){
-    var ads = SERVICE.get(edor).resource;
-    ads.query().$promise.then( result => {
+
+    SERVICE.get(edor).query().$promise.then( result => {
       this.professorsArray = result;
       console.log(this);
     });

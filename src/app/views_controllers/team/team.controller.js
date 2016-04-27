@@ -3,13 +3,13 @@
  */
 export class TeamController {
 
-  constructor($modal, $scope) {
+  constructor($modal, $scope, $window) {
     'ngInject';
 
 
     //this.$modalInstance = $modalInstance;
     this.$scope = $scope;
-
+    this.$window = $window;
     this.filteredTodos = [];
     this.currentPage = 1;
     this.numPerPage = 10;
@@ -117,7 +117,6 @@ export class TeamController {
 
   memberAdded(){
 
-
     return (event, data) => {
       console.log(data);
       this.teamMembers.push(data);
@@ -126,8 +125,10 @@ export class TeamController {
   }
 
   deleteTeamMember(member){
+    if(this.$window.confirm('You sure you want to delete this member?')) {
       var index = this.teamMembers.indexOf(member);
       this.teamMembers.splice(index, 1);
+    }
   }
 
 

@@ -10,14 +10,7 @@ export class ProfessorDetailsController {
     this.$state = $state;
     SERVICE.set(this, ProfessorsService.resource);
 
-    this.professorDetails = {};
     this.getProfessor(this.$stateParams.professorId);
-
-
-    this.toDataUrl('http://s3-eu-central-1.amazonaws.com/aubg-sg/professors/photos/000/000/012/original/something.jpg?1461872491', (base64Img) => {
-      this.professorDetails.image_json = base64Img;
-    });
-
   }
 
   toDataUrl(url, callback, outputFormat) {
@@ -41,7 +34,10 @@ export class ProfessorDetailsController {
   getProfessor(professorId) {
     SERVICE.get(this).get({professorId: professorId}).$promise.then(result => {
       this.professorDetails = result;
-      console.log(result);
+
+      this.toDataUrl(this.professorDetails.photo, (base64Img) => {
+        this.professorDetails.image_json = base64Img;
+      });
     });
   }
 
@@ -50,7 +46,8 @@ export class ProfessorDetailsController {
     console.log('------------');
     delete this.professorDetails.photo;
     var professorObj = JSON.parse('{"professor":' + JSON.stringify(this.professorDetails) + '}');
-    SERVICE.get(this).update({professorId: professorId}, professorObj).$promise.then(() => {
+    SERVICE.get(this).update({professorId: professorId}, professorObj).$promise.then((response) => {
+      this.professorDetails = response;
     });
   }
 

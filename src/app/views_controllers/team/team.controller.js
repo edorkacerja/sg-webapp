@@ -1,12 +1,11 @@
-/**
- * Created by AcerPC on 3/31/2016.
- */
+const SERVICE = new WeakMap();
+
 export class TeamController {
 
-  constructor($modal, $scope, $window) {
+  constructor($modal, $scope, $window, TeamMemberService) {
     'ngInject';
 
-
+    SERVICE.set(this, TeamMemberService.resource);
     //this.$modalInstance = $modalInstance;
     this.$scope = $scope;
     this.$window = $window;
@@ -21,82 +20,30 @@ export class TeamController {
 
     this.$scope.$on('memberAdded', this.memberAdded());
     this.$modal = $modal;
-    this.teamMembers = [
+    this.teamMembersArray = [
       {
-        name: "edor",
-        description: "1edor has big balls"
+        name: "teo",
+        description: "14teo e backend dev"
       },
       {
         name: "teo",
-        description: "2teo e gay"
-      },
-      {
-        name: "edor",
-        description: "3edor has big balls"
-      },
-      {
-        name: "teo",
-        description: "4teo e gay"
-      },
-      {
-        name: "edor",
-        description: "5edor has big balls"
-      },
-      {
-        name: "teo",
-        description: "6teo e gay"
-      },
-      {
-        name: "edor",
-        description: "7edor has big balls"
-      },
-      {
-        name: "teo",
-        description: "8teo e gay"
-      },
-      {
-        name: "edor",
-        description: "9edor has big balls"
-      },
-      {
-        name: "teo",
-        description: "10teo e gay"
-      },
-      {
-        name: "edor",
-        description: "11edor has big balls"
-      },
-      {
-        name: "teo",
-        description: "12teo e gay"
-      },
-      {
-        name: "teo",
-        description: "13teo e gay"
-      },
-      {
-        name: "teo",
-        description: "14teo e gay"
-      },
-      {
-        name: "teo",
-        description: "15teo e gay"
+        description: "15teo e meteor dev"
       }
     ];
 
-
+    this.getTeamMembers();
     this.$scope.$watch('currentPage', this.pageChanged());
 
   }
 
+
+
+
+
+
   pageChanged() {
       var begin = ((this.currentPage - 1) * this.numPerPage), end = begin + this.numPerPage;
-      this.filteredTodos = this.teamMembers.slice(begin, end);
-  }
-
-
-  getTeam() {
-    return this.teamMembers;
+      this.filteredTodos = this.teamMembersArray.slice(begin, end);
   }
 
 
@@ -119,17 +66,32 @@ export class TeamController {
 
     return (event, data) => {
       console.log(data);
-      this.teamMembers.push(data);
+      this.teamMembersArray.push(data);
     };
 
   }
 
-  deleteTeamMember(member){
+  deleteTeamMember(memberId){
     if(this.$window.confirm('You sure you want to delete this member?')) {
-      var index = this.teamMembers.indexOf(member);
-      this.teamMembers.splice(index, 1);
+      SERVICE.get(this).delete({memberId: memberId}).$promise.then((success) => {},
+        (error) => { console.log(error.statusText); });
+
     }
   }
+
+
+
+
+  getTeamMembers(){
+    SERVICE.get(this).query().$promise.then( response => {
+      this.teamMembersArray = response;
+      console.log(response.$promise);
+
+    }, error => {
+      console.log(error);
+    });
+  }
+
 
 
   toggleSideNavbar(){
@@ -138,9 +100,6 @@ export class TeamController {
       $("#wrapper").toggleClass("toggled");
     });
   }
-
-
-  //pagination
 
 
 

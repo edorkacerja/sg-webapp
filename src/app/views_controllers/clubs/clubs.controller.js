@@ -1,15 +1,12 @@
-/**
- * Created by AcerPC on 3/31/2016.
- */
+const SERVICE = new WeakMap();
 
 export class ClubsController {
 
-  constructor($modal) {
+  constructor($modal, ClubsService) {
     'ngInject';
     this.$modal = $modal;
 
-
-    //this.$modalInstance = $modalInstance;
+    SERVICE.set(this, ClubsService.resource);
 
     this.clubsArray = [
       {
@@ -69,6 +66,8 @@ export class ClubsController {
         department: "cos"
       }
     ];
+
+    this.getClubs();
   }
 
 
@@ -84,6 +83,15 @@ export class ClubsController {
 
   }
 
+  getClubs() {
+    SERVICE.get(this).query().$promise.then((response) => {
+        console.log(response);
+        this.clubsArray = response;
+      },
+      (error) => {
+        console.log(error);
+      });
+  }
 
 
 }

@@ -17,8 +17,10 @@ import { ProfessorDetailsController } from './views_controllers/professors/profe
 import { ClubDetailsController } from './views_controllers/clubs/clubDetails/clubDetails.controller';
 import { GithubContributorService } from '../app/components/githubContributor/githubContributor.service';
 import { AuthService } from './services/auth.service';
-import { AddTeamMemberService } from './services/addTeamMember.service';
+import { TeamMemberService } from './services/teamMember.service.js';
 import { ProfessorsService } from './services/professors.service';
+import { InternshipsService } from './services/internships.service';
+import { ClubsService } from './services/clubs.service';
 import { AuthInterceptor } from './services/authInterceptor.service';
 import { WebDevTecService } from '../app/components/webDevTec/webDevTec.service';
 import { NavbarDirective } from '../app/components/navbar/navbar.directive';
@@ -37,7 +39,9 @@ angular.module('sg', ['ngAnimate', 'angularModalService', 'ngSanitize', 'ngResou
   .service('githubContributor', GithubContributorService)
   .service('webDevTec', WebDevTecService)
   .service('AuthService', AuthService)
-  .service('AddTeamMemberService', AddTeamMemberService)
+  .service('TeamMemberService', TeamMemberService)
+  .service('InternshipsService', InternshipsService)
+  .service('ClubsService', ClubsService)
   .service('ProfessorsService', ProfessorsService)
   .service('AuthInterceptor', AuthInterceptor)
   .controller('MainController', MainController)

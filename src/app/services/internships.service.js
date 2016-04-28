@@ -1,8 +1,9 @@
 
-export class ProfessorsService {
+
+export class InternshipsService {
   constructor($resource, api) {
     'ngInject';
-    this.resource = $resource(api + 'v1/professors/:professorId', {professorId: '@professorId'}, {
+    this.resource = $resource(api + 'v1/internships/:internshipId', {internshipId: '@internshipId'}, {
       get: {
         method: 'GET'
       },
@@ -23,9 +24,6 @@ export class ProfessorsService {
 
 
   }
-
-
-
 
 
 

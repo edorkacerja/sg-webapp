@@ -32,18 +32,19 @@
                   <h3>{{ internship.name}}</h3>
 
                   <p>{{ internship.description}}</p>
+                  <p>link: {{ internship.link}}</p>
                   <button ng-hide="editing" type="submit" class="btn btn-primary pull-right">Edit</button>
                 </form>
 
 
                 <form ng-show="editing" ng-submit="editing = false">
                   <label>Name:</label>
-                  <input type="text" ng-model="member.name" placeholder="Name" ng-required/>
+                  <input type="text" ng-model="internship.name" placeholder="Name" ng-required/>
                   <label>Description:</label>
-                  <input type="text" ng-model="member.description" placeholder="Description" ng-required/>
+                  <input type="text" ng-model="internship.description" placeholder="Description" ng-required/>
                   <br/>
                   <button class="btn btn-success" type="submit">Save</button>
-                  <button class="btn btn-danger" type="button" ng-click="team.deleteTeamMember(member)">Delete
+                  <button class="btn btn-danger" type="button" ng-click="internCtrl.deleteInternship(internship.id)">Delete
                   </button>
                 </form>
 

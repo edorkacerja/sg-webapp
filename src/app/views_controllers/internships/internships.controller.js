@@ -1,15 +1,14 @@
-/**
- * Created by AcerPC on 3/31/2016.
- */
+const SERVICE = new WeakMap();
 
 export class InternshipsController {
 
-  constructor($modal) {
+  constructor($window, $modal, InternshipsService) {
     'ngInject';
     this.$modal = $modal;
 
-    //this.$modalInstance = $modalInstance;
-
+    SERVICE.set(this, InternshipsService.resource);
+    this.$window = $window;
+    this.getInternships();
     this.internshipsArray = [
       {
         name: "Internship 1",
@@ -47,12 +46,12 @@ export class InternshipsController {
         description: "best internship on earth",
         link: "www.pornhub.com"
       }
-      ];
+    ];
 
 
   }
 
-  addInternship(){
+  addInternship() {
     this.$modal.open({
       animation: true,
       templateUrl: 'app/views_controllers/internships/addInternship/addInternship.html',
@@ -63,6 +62,23 @@ export class InternshipsController {
   }
 
 
+  getInternships() {
+    SERVICE.get(this).query().$promise.then(response => {
+        this.internshipsArray = response;
+      },
+      error => {
+        console.log(error);
+      });
+  }
 
+  deleteInternship(internshipId) {
+    if (this.$window.confirm('You sure you want to delete this member?')) {
+      SERVICE.get(this).delete({internshipId: internshipId}).$promise.then(() => {
+        },
+        (error) => {
+          console.log(error.statusText);
+        });
+    }
+  }
 
 }

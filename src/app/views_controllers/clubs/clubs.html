@@ -7,6 +7,7 @@
       <div class="container-fluid">
 
 
+        <!---------------- HEADER ----------------->
         <div class="row">
           <menu-button></menu-button>
           <div class="col-md-4">
@@ -17,19 +18,17 @@
         </div>
 
 
+        <!----------------  CLUB LIST  ----------------->
         <div class="row" id="clubs">
           <h1>Clubs</h1>
 
+          <div class="hover04  row">
+            <div ui-sref="clubDetails({clubId: club.id})" class="col-md-4" ng-repeat="club in clubsCtrl.clubsArray">
+              <figure><img src="http://nxworld.net/codepen/css-image-hover-effects/pic03.jpg"/></figure>
+              <span>{{ club.name }}</span>
+            </div>
 
-        <div class="hover04  row">
-          <div ui-sref="clubDetails({clubId: club.id})" class="col-md-4" ng-repeat="club in clubsCtrl.clubsArray">
-            <figure><img src="http://nxworld.net/codepen/css-image-hover-effects/pic03.jpg" /></figure>
-            <span>{{ club.name }}</span>
           </div>
-
-        </div>
-
-
         </div>
 
 

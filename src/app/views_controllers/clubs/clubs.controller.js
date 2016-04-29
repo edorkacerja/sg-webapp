@@ -5,8 +5,9 @@ export class ClubsController {
   constructor($modal, ClubsService) {
     'ngInject';
     this.$modal = $modal;
-
     SERVICE.set(this, ClubsService.resource);
+
+
 
     this.clubsArray = [
       {
@@ -67,21 +68,12 @@ export class ClubsController {
       }
     ];
 
-    this.getClubs();
+    //todo:  API request body?
+    //this.getClubs();
   }
 
 
-  addClub() {
 
-    this.$modal.open({
-      animation: true,
-      templateUrl: 'app/views_controllers/clubs/addClub/addClub.html',
-      controller: 'AddClubController',
-      controllerAs: 'acc',
-      size: 'md'
-    });
-
-  }
 
   getClubs() {
     SERVICE.get(this).query().$promise.then((response) => {
@@ -92,6 +84,23 @@ export class ClubsController {
         console.log(error);
       });
   }
+
+
+
+
+
+  addClub() {
+    this.$modal.open({
+      animation: true,
+      templateUrl: 'app/views_controllers/clubs/addClub/addClub.html',
+      controller: 'AddClubController',
+      controllerAs: 'acc',
+      size: 'md'
+    });
+
+  }
+
+
 
 
 }

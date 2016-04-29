@@ -2,8 +2,13 @@
 <div class="modal-header">
   <h3 class="modal-title">Registration Form</h3>
 </div>
+
+
+
 <form name="acc.registrationForm" role="form" ng-submit="acc.register(acc.user)" novalidate>
   <div class="modal-body">
+
+
     <div class="form-group row" ng-class="{ 'has-error' : acc.registrationForm.name.$error.required && acc.registrationForm.name.$dirty }">
       <label class="col-md-2 control-label" for="name">Name</label>
       <div class="col-md-10">
@@ -28,9 +33,10 @@
       </div>
     </div>
 
+  </div> <!------------ END MODAL BODY -------------->
 
 
-  </div>
+
   <div class="modal-footer">
     <button class="btn btn-primary" ng-disabled="acc.registrationForm.$invalid" type="submit" >Register</button>
     <button class="btn btn-warning" type="button" ng-click="acc.cancel()">Cancel</button>

@@ -29,7 +29,7 @@ import { NavbarTopDirective } from '../app/components/navbar/navbarTop.directive
 import { MalarkeyDirective } from '../app/components/malarkey/malarkey.directive';
 
 
-angular.module('sg', ['ngAnimate', 'angularModalService', 'ngSanitize', 'ngResource', 'ui.router', 'ui.bootstrap', 'toastr'])
+angular.module('sg', ['ngAnimate', 'angularModalService', 'ngSanitize', 'ngResource', 'ui.router', 'ui.bootstrap', 'toastr', 'ngFileUpload'])
   .constant('malarkey', malarkey)
   .constant('moment', moment)
   .constant('api', "http://sgaubg.herokuapp.com/api/")

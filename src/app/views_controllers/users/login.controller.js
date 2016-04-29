@@ -5,6 +5,7 @@ const SCOPE = new WeakMap();
 const STATE = new WeakMap();
 const TOASTR = new WeakMap();
 
+
 export class LoginController {
   constructor ($state, toastr, AuthService, $scope) {
     'ngInject';
@@ -23,6 +24,7 @@ export class LoginController {
   }
 
 
+
 //------------------ LOGIN ------------------
   login(user){
     this.AuthService.login(user).then( result => {
@@ -33,19 +35,21 @@ export class LoginController {
 
       }
     );
-
-    //console.log(user);
   }
 
 
 
-  //--------------- LOGOUT -------------------
+
+  //--------------- LOGOUT ------------------- todo: logout implementation
   logout(){
 
   }
 
-  register(regUser){
 
+
+
+
+  register(regUser){
     //todo when api is ready
     //this.AuthService.register(regUser).then(
     //  function() {
@@ -61,10 +65,6 @@ export class LoginController {
   }
 
 
-  change(){
-      $('form').animate({height: "toggle", opacity: "toggle"}, "slow");
-    };
-
 
   showToastr() {
     this.toastr.success('Login Successful');
@@ -74,4 +74,7 @@ export class LoginController {
 
 
 
+  change(){
+    $('form').animate({height: "toggle", opacity: "toggle"}, "slow");
+  };
   }

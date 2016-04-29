@@ -3,12 +3,14 @@ const SERVICE = new WeakMap();
 
 export class ClubDetailsController {
 
-  constructor($modal, $scope, $stateParams, ClubsService) {
+  constructor($stateParams, ClubsService) {
     'ngInject';
-    this.$scope = $scope;
     this.$stateParams = $stateParams;
-    this.$modal = $modal;
     SERVICE.set(this, ClubsService.resource);
+
+
+
+
     this.getClub($stateParams.clubId);
   }
 
@@ -20,6 +22,7 @@ export class ClubDetailsController {
       console.log(error);
     });
   }
+
 
   deleteClub(clubId) {
     SERVICE.get(this).delete({clubId: clubId}).$promise.then((success)=> {

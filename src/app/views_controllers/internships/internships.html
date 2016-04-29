@@ -6,10 +6,11 @@
     <div id="page-content-wrapper">
       <div class="container-fluid">
 
+
+        <!--------------  HEADER  --------------->
         <div class="row">
           <menu-button></menu-button>
           <div class="col-md-4">
-
             <div class="form-group">
               <input type="text" class="form-control" ng-model="internCtrl.searchBox" placeholder="Search">
             </div>
@@ -20,23 +21,22 @@
         </div>
 
 
-        <div id="team">
+        <!-------------- INTERNSHIPS LIST  ------------>
+        <div class="team">
           <div>
             <ul>
-
               <li ng-repeat="internship in internCtrl.internshipsArray">
 
                 <form ng-show="!editing" ng-submit="editing = true">
                   <img src="http://lorempixum.com/100/100/nature/1">
-
                   <h3>{{ internship.name}}</h3>
-
                   <p>{{ internship.description}}</p>
                   <p>link: {{ internship.link}}</p>
                   <button ng-hide="editing" type="submit" class="btn btn-primary pull-right">Edit</button>
                 </form>
 
 
+                <!--------------   EDITING MODE   ----------------->
                 <form ng-show="editing" ng-submit="editing = false">
                   <label>Name:</label>
                   <input type="text" ng-model="internship.name" placeholder="Name" ng-required/>
@@ -47,14 +47,12 @@
                   <button class="btn btn-danger" type="button" ng-click="internCtrl.deleteInternship(internship.id)">Delete
                   </button>
                 </form>
-
-
               </li>
 
 
             </ul>
           </div>
-        </div><!-- team finish -->
+        </div><!-- end internships list -->
 
 
 

@@ -4,6 +4,7 @@ export class ProfessorDetailsController {
 
   constructor($modal, $scope, $stateParams, ProfessorsService, $state) {
     'ngInject';
+
     this.$scope = $scope;
     this.$stateParams = $stateParams;
     this.$modal = $modal;
@@ -13,6 +14,48 @@ export class ProfessorDetailsController {
     this.getProfessor(this.$stateParams.professorId);
   }
 
+
+
+
+  getProfessor(professorId) {
+    SERVICE.get(this).get({professorId: professorId}).$promise.then(result => {
+      this.professorDetails = result;
+
+      // converts the photo URL to base 64
+      this.toDataUrl(this.professorDetails.photo, (base64Img) => {
+        this.professorDetails.image_json = base64Img;
+      });
+    });
+  }
+
+
+
+
+  saveProfessorEditing(professorId) {
+    console.log('------------');
+    delete this.professorDetails.photo;
+    var professorObj = JSON.parse('{"professor":' + JSON.stringify(this.professorDetails) + '}');
+    SERVICE.get(this).update({professorId: professorId}, professorObj).$promise.then((response) => {
+      this.professorDetails = response;
+    });
+  }
+
+
+
+
+  deleteProfessor(professorId) {
+    SERVICE.get(this).delete({professorId: professorId}).$promise.then((result)=> {
+      this.$state.go('professors');
+      console.log('finally deleted');
+    }, (error)=> {
+      console.log(error);
+    });
+  }
+
+
+
+
+//----------------  BASE 64 CONVERTER ------------------
   toDataUrl(url, callback, outputFormat) {
     var img = new Image();
     img.crossOrigin = 'Anonymous';
@@ -29,37 +72,5 @@ export class ProfessorDetailsController {
     };
     img.src = url;
   }
-
-
-  getProfessor(professorId) {
-    SERVICE.get(this).get({professorId: professorId}).$promise.then(result => {
-      this.professorDetails = result;
-
-      this.toDataUrl(this.professorDetails.photo, (base64Img) => {
-        this.professorDetails.image_json = base64Img;
-      });
-    });
-  }
-
-
-  saveProfessorEditing(professorId) {
-    console.log('------------');
-    delete this.professorDetails.photo;
-    var professorObj = JSON.parse('{"professor":' + JSON.stringify(this.professorDetails) + '}');
-    SERVICE.get(this).update({professorId: professorId}, professorObj).$promise.then((response) => {
-      this.professorDetails = response;
-    });
-  }
-
-
-  deleteProfessor(professorId) {
-    SERVICE.get(this).delete({professorId: professorId}).$promise.then((result)=> {
-      this.$state.go('professors');
-      console.log('finally deleted');
-    }, (error)=> {
-      console.log(error);
-    });
-  }
-
 
 }

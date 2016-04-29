@@ -1,24 +1,25 @@
+const SERVICE = new WeakMap();
+
 export class AddClubController {
-  constructor( $rootScope, $modalInstance) {
+
+  constructor($modalInstance, ClubsService) {
     'ngInject';
 
-
-    this.$rootScope = $rootScope;
     this.$modalInstance = $modalInstance;
+    SERVICE.set(this, ClubsService);
 
 
 
   }
+
 
 
   register(user){
-
-    this.$rootScope.$broadcast('memberAdded', user);
-
     this.$modalInstance.dismiss();
 
-
   }
+
+
 
 
   cancel(){

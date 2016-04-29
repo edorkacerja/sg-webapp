@@ -1,23 +1,19 @@
 export class AddInternshipController {
-  constructor( $rootScope, $modalInstance) {
+
+  constructor($modalInstance) {
     'ngInject';
 
 
-    this.$rootScope = $rootScope;
     this.$modalInstance = $modalInstance;
-
-
 
   }
 
 
+
+
   register(user){
 
-    this.$rootScope.$broadcast('memberAdded', user);
-
     this.$modalInstance.dismiss();
-
-
   }
 
 

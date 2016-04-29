@@ -1,34 +1,26 @@
+const SERVICE = new WeakMap();
+
 export class AddTeamMemberController {
-  constructor(AddTeamMemberService , $rootScope, $modalInstance) {
+  constructor(TeamMemberService , $modalInstance) {
     'ngInject';
 
-
-    this.AddTeamMemberService = AddTeamMemberService;
-    this.$rootScope = $rootScope;
     this.$modalInstance = $modalInstance;
+    SERVICE.set(this, TeamMemberService.resource);
 
 
 
   }
 
 
+
   register(user){
-
-    this.$rootScope.$broadcast('memberAdded', user);
-
     this.$modalInstance.dismiss();
-
-
   }
 
 
   cancel(){
     this.$modalInstance.dismiss();
   }
-
-
-
-
 
 
 

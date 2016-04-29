@@ -1,12 +1,15 @@
 <div class="modal-header">
   <h3 class="modal-title">Registration Form</h3>
 </div>
+
 <form name="apr.registrationForm" role="form" ng-submit="apr.addNewProfessor(apr.newProfessor)" novalidate>
   <div class="modal-body">
+
+
+
     <div class="form-group row"
          ng-class="{ 'has-error' : apr.registrationForm.name.$error.required && apr.registrationForm.name.$dirty }">
       <label class="col-md-2 control-label" for="name">Name</label>
-
       <div class="col-md-10">
         <input type="text" ng-model="apr.newProfessor.name" class="form-control" name="name" id="name"
                placeholder="name" required>
@@ -15,10 +18,11 @@
       </div>
     </div>
 
+
+
     <div class="form-group row"
          ng-class="{ 'has-error' : apr.registrationForm.department.$error.required}">
       <label class="col-md-2 control-label" for="department">Department:</label>
-
       <div class="col-md-10">
         <select class="form-control" id="department" ng-model="apr.newProfessor.department" required>
           <option>cos</option>
@@ -32,20 +36,45 @@
       </div>
     </div>
 
-    <div class="form-group row"
-         ng-class="{ 'has-error' : apr.registrationForm.description.$error.required && apr.registrationForm.description.$dirty }">
-      <label class="col-md-2 control-label" for="description">Description</label>
 
-      <div class="col-md-10">
-        <input type="text" ng-model="atm.newProfessor.description" class="form-control" id="description"
-               name="description" placeholder="Description" required>
-        <span ng-show="apr.registrationForm.description.$error.required  && !apr.registrationForm.description.$pristine"
-              class="help-block">Please enter the description!</span>
-      </div>
+    <!--todo: add professors description in the API-->
+    <!--<div class="form-group row"-->
+         <!--ng-class="{ 'has-error' : apr.registrationForm.description.$error.required && apr.registrationForm.description.$dirty }">-->
+      <!--<label class="col-md-2 control-label" for="description">Description</label>-->
+      <!--<div class="col-md-10">-->
+        <!--<input type="text" ng-model="atm.newProfessor.description" class="form-control" id="description"-->
+               <!--name="description" placeholder="Description" required>-->
+        <!--<span ng-show="apr.registrationForm.description.$error.required  && !apr.registrationForm.description.$pristine"-->
+              <!--class="help-block">Please enter the description!</span>-->
+      <!--</div>-->
+    <!--</div>-->
+
+
+
+
+    <div class="form-group row">
+      <br>Photo:
+      <input type="file" ngf-select ng-model="picFile" name="file"
+             accept="image/*" ngf-max-size="2MB" required
+             ngf-model-invalid="errorFile">
+      <i ng-show="false">*required</i><br>
+      <i ng-show="false">File too large
+        {{errorFile.size / 1000000|number:1}}MB: max 2M</i>
+      <img ng-show="myForm.file.$valid" ngf-thumbnail="picFile" class="img-thumbnail"> <a ng-click="picFile = null"
+                                                                                          class="btn btn-danger"
+                                                                                          ng-show="picFile">Remove</a>
+      <br>
+      <a class="btn btn-default"
+         ng-click="apr.uploadPic(picFile)">Submit</a>
     </div>
 
 
-  </div>
+
+  </div> <!-- END  MODAL BODY -->
+
+
+
+
   <div class="modal-footer">
     <button class="btn btn-primary" ng-disabled="apr.registrationForm.$invalid" type="submit">Register</button>
     <button class="btn btn-warning" type="button" ng-click="apr.closeRegistrationForm()">Cancel</button>

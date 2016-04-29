@@ -2,6 +2,8 @@
 <div class="modal-header">
   <h3 class="modal-title">Registration Form</h3>
 </div>
+
+
 <form name="aic.registrationForm" role="form" ng-submit="aic.register(aic.user)" novalidate>
   <div class="modal-body">
 
@@ -28,10 +30,10 @@
         <span ng-show="aic.registrationForm.link.$error.required  && !aic.registrationForm.link.$pristine" class="help-block">Please enter the link!</span>
       </div>
     </div>
+  </div> <!----------- END MODAL BODY --------------->
 
 
 
-  </div>
   <div class="modal-footer">
     <button class="btn btn-primary" ng-disabled="aic.registrationForm.$invalid" type="submit" >Register</button>
     <button class="btn btn-warning" type="button" ng-click="aic.cancel()">Cancel</button>

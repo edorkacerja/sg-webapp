@@ -6,10 +6,12 @@
     <div id="page-content-wrapper">
       <div class="container-fluid">
 
-        <button ui-sref="clubs" class="btn btn-default"> back to clubs</button>
+        <button ng-show="!editing" ui-sref="clubs" class="btn btn-default"> back to clubs</button>
 
+
+
+        <!---------------   CLUB BODY   ---------------->
         <form ng-show="!editing" ng-submit="editing = true">
-
           <div class="row">
             <div class="col-md-4">
               <img src="http://nxworld.net/codepen/css-image-hover-effects/pic03.jpg" alt="">
@@ -17,16 +19,16 @@
 
             <div class="col-md-6">
               <h1> {{ clubDetail.club.name }} something</h1>
-
               <p> President: {{ clubDetail.club.president }} the rosen plevneyev</p>
-
               <p> Professor: {{ clubDetail.club.professor }} advisor of the club </p>
             </div>
           </div>
           <button type="submit" class="btn btn-primary pull-right">Edit</button>
-
         </form>
 
+
+
+        <!--------------   EDITING MODE   --------------->
         <form ng-show="editing" ng-submit="editing = false">
           <label>Name of the club:</label>
           <input type="text" ng-model="clubDetail.club.name" placeholder="Name" ng-required/>
@@ -42,9 +44,6 @@
             Delete
           </button>
         </form>
-
-
-
 
 
 

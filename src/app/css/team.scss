@@ -1,4 +1,14 @@
-#team {
+.img-thumbnail {
+  height:160px;
+  width: 160px;
+}
+
+.team {
+
+  .img-thumbnail {
+    height:200px;
+    width: 200px;
+  }
 
   * {
     margin: 0;

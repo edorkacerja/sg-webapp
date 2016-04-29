@@ -2,7 +2,10 @@
 <div class="modal-header">
   <h3 class="modal-title">Registration Form</h3>
 </div>
+
+
 <form name="atm.registrationForm" role="form" ng-submit="atm.register(atm.user)" novalidate>
+
   <div class="modal-body">
     <div class="form-group row" ng-class="{ 'has-error' : atm.registrationForm.name.$error.required && atm.registrationForm.name.$dirty }">
       <label class="col-md-2 control-label" for="name">Name</label>
@@ -12,6 +15,7 @@
       </div>
     </div>
 
+
     <div class="form-group row"  ng-class="{ 'has-error' : atm.registrationForm.description.$error.required && atm.registrationForm.description.$dirty }">
       <label class="col-md-2 control-label" for="description">Description</label>
       <div class="col-md-10">
@@ -19,12 +23,13 @@
         <span ng-show="atm.registrationForm.description.$error.required  && !atm.registrationForm.description.$pristine" class="help-block">Please enter the description!</span>
       </div>
     </div>
+  </div> <!---------   END MODAL BODY  ----------->
 
 
 
-  </div>
   <div class="modal-footer">
     <button class="btn btn-primary" ng-disabled="atm.registrationForm.$invalid" type="submit" >Register</button>
     <button class="btn btn-warning" type="button" ng-click="atm.cancel()">Cancel</button>
   </div>
+
 </form>

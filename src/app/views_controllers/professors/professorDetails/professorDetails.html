@@ -2,34 +2,32 @@
   <div id="wrapper">
     <acme-navbar></acme-navbar>
 
+
     <!-- Page Content -->
     <div id="page-content-wrapper">
       <div class="container-fluid">
-        <button ng-show="!editing" class="btn btn-default" ui-sref="professors"> back to professors</button>
+        <button ng-show="!editing" class="btn btn-default" ui-sref="professors"> Back to Professors</button>
+
 
         <form ng-show="!editing">
-
           <div class="media-left media-middle">
             <img ng-src="{{ profDetail.professorDetails.photo }}" class="media-object img-thumbnail">
           </div>
-
           <div class="media-body">
             <h3 class="media-heading">{{ profDetail.professorDetails.name}}</h3>
-
             <p class="label label-danger">{{ profDetail.professorDetails.department }}</p>
-
-            <p>{{ professor.description }}</p>
+            <!--<p>{{ professor.description }}</p>-->
             <button type="button" ng-click="editing = true" class="btn btn-primary pull-right">Edit</button>
           </div>
-
         </form>
 
 
 
+        <!-- ----------------  EDITING MODE  --------------------- -->
         <form ng-show="editing" ng-submit="editing = false">
           <label>Name:</label>
           <input type="text" ng-model="profDetail.professorDetails.name" placeholder="Name" ng-required/>
-          <label>Description:</label>
+          <label>Department:</label>
           <select class="form-control" id="department" ng-model="profDetail.professorDetails.department" required>
             <option>cos</option>
             <option>inf</option>
@@ -39,7 +37,8 @@
             <option>eco</option>
             <option>bus</option>
           </select>
-          <input type="text" ng-model="profDetail.professorDetails.description" placeholder="Description" ng-required/>
+          <!--<label>Description:</label>-->
+          <!--<input type="text" ng-model="profDetail.professorDetails.description" placeholder="Description" ng-required/>-->
           <br/>
           <button class="btn btn-success" ng-click="profDetail.saveProfessorEditing(profDetail.professorDetails.id)" type="submit">Save</button>
           <button class="btn btn-danger" type="button" ng-click="profDetail.deleteProfessor(profDetail.professorDetails.id)">
@@ -48,11 +47,18 @@
         </form>
 
 
+
+
+
+        <!-------------------- EVALUATIONS ---------------------->
         <div class="row">
           <div class="col-md-10">
             <span><strong>Unknown:::: </strong></span> i cant believe i pay $22/class with this professor.
           </div>
         </div>
+
+
+
 
 
       </div>

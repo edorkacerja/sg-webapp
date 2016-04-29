@@ -5,10 +5,10 @@ export class InternshipsController {
   constructor($window, $modal, InternshipsService) {
     'ngInject';
     this.$modal = $modal;
-
-    SERVICE.set(this, InternshipsService.resource);
     this.$window = $window;
-    this.getInternships();
+    SERVICE.set(this, InternshipsService.resource);
+
+
     this.internshipsArray = [
       {
         name: "Internship 1",
@@ -48,8 +48,21 @@ export class InternshipsController {
       }
     ];
 
-
+    //todo: API request body?
+    //this.getInternships();
   }
+
+
+  getInternships() {
+    SERVICE.get(this).query().$promise.then(response => {
+        this.internshipsArray = response;
+      },
+      error => {
+        console.log(error);
+      });
+  }
+
+
 
   addInternship() {
     this.$modal.open({
@@ -62,14 +75,6 @@ export class InternshipsController {
   }
 
 
-  getInternships() {
-    SERVICE.get(this).query().$promise.then(response => {
-        this.internshipsArray = response;
-      },
-      error => {
-        console.log(error);
-      });
-  }
 
   deleteInternship(internshipId) {
     if (this.$window.confirm('You sure you want to delete this member?')) {

@@ -11,10 +11,10 @@
             <h1>Team View</h1>
 
 
+            <!---------------- HEADER ----------------->
             <div class="row">
               <menu-button></menu-button>
               <div class="col-md-4">
-
                 <div class="form-group">
                   <input type="text" class="form-control" ng-model="team.searchBox" placeholder="Search">
                 </div>
@@ -23,23 +23,24 @@
                 <button ng-click="team.addMember()"> Add Team Member</button>
               </div>
             </div>
-            <div id="team">
+
+
+
+            <!------------------- TEAM LIST -------------------->
+            <div class="team">
               <div>
-
                 <ul>
-
                   <li ng-repeat="member in team.filteredTodos | filter:team.searchBox">
-
                     <form ng-show="!editing" ng-submit="editing = true">
                       <img src="http://lorempixum.com/100/100/nature/1">
-
                       <h3>{{ member.name}}</h3>
-
                       <p>{{member.description}}</p>
                       <button ng-hide="editing" type="submit" class="btn btn-primary pull-right">Edit</button>
                     </form>
 
 
+
+                    <!----------------  EDITING MODE ----------------->
                     <form ng-show="editing" ng-submit="editing = false">
                       <label>Name:</label>
                       <input type="text" ng-model="member.name" placeholder="Name" ng-required/>
@@ -53,14 +54,14 @@
 
 
                   </li>
-
-
                 </ul>
               </div>
-            </div><!-- team finish -->
+            </div><!-- team list finish -->
 
 
-            <!--pagination-->
+
+
+            <!------------------ PAGINATION ------------------>
             <pagination
               ng-model="team.currentPage"
               total-items="(team.teamMembers | filter:team.searchBox).length"
@@ -68,6 +69,8 @@
               boundary-links="true"
               ng-change="team.pageChanged()">
             </pagination>
+
+
 
           </div>
         </div>

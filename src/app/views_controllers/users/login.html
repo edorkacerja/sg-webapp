@@ -1,5 +1,6 @@
 <div class="login-page">
   <div class="form">
+
     <form class="register-form">
       <input ng-model="regUser.username" type="text" placeholder="username"/>
       <input ng-model="regUser.password" type="password" placeholder="password"/>
@@ -7,6 +8,8 @@
       <button ng-click="login.register(regUser)">create</button>
       <p class="message">Already registered? <a ng-click="login.change()" href="#">Sign In</a></p>
     </form>
+
+
     <form class="login-form">
       <input type="text" ng-model="user.email" placeholder="email"/>
       <input type="password" ng-model="user.password" placeholder="password"/>

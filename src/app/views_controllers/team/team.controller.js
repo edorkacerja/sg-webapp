@@ -11,11 +11,11 @@ export class TeamController {
     this.$scope =$scope;
 
     //--------- PAGINATION PROPERTIES ----------
-    this.filteredTodos = [];
-    this.currentPage = 1;
-    this.numPerPage = 10;
-    this.maxSize = 5;
-    this.$scope.$watch('currentPage', this.pageChanged());
+    //this.filteredTodos = [];
+    //this.currentPage = 1;
+    //this.numPerPage = 10;
+    //this.maxSize = 5;
+    //this.$scope.$watch('currentPage', this.pageChanged());
 
 
 
@@ -32,7 +32,7 @@ export class TeamController {
     ];
 
 
-    this.getTeamMembers();
+    //this.getTeamMembers();
   }
 
 
@@ -79,8 +79,8 @@ export class TeamController {
 
 
   //---------------- PAGINATION -----------------
-  pageChanged() {
-    var begin = ((this.currentPage - 1) * this.numPerPage), end = begin + this.numPerPage;
-    this.filteredTodos = this.teamMembersArray.slice(begin, end);
-  }
+  //pageChanged() {
+  //  var begin = ((this.currentPage - 1) * this.numPerPage), end = begin + this.numPerPage;
+  //  this.filteredTodos = this.teamMembersArray.slice(begin, end);
+  //}
 }

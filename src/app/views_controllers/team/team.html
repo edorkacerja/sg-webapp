@@ -30,7 +30,7 @@
             <div class="team">
               <div>
                 <ul>
-                  <li ng-repeat="member in team.filteredTodos | filter:team.searchBox">
+                  <li ng-repeat="member in team.teamMembersArray | filter:team.searchBox">
                     <form ng-show="!editing" ng-submit="editing = true">
                       <img src="http://lorempixum.com/100/100/nature/1">
                       <h3>{{ member.name}}</h3>
@@ -62,13 +62,13 @@
 
 
             <!------------------ PAGINATION ------------------>
-            <pagination
-              ng-model="team.currentPage"
-              total-items="(team.teamMembers | filter:team.searchBox).length"
-              max-size="team.maxSize"
-              boundary-links="true"
-              ng-change="team.pageChanged()">
-            </pagination>
+            <!--<pagination-->
+              <!--ng-model="team.currentPage"-->
+              <!--total-items="(team.teamMembers | filter:team.searchBox).length"-->
+              <!--max-size="team.maxSize"-->
+              <!--boundary-links="true"-->
+              <!--ng-change="team.pageChanged()">-->
+            <!--</pagination>-->
 
 
 

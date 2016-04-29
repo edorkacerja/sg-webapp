@@ -50,23 +50,31 @@
     <!--</div>-->
 
 
+    <p id="b64"></p>
 
 
     <div class="form-group row">
       <br>Photo:
-      <input type="file" ngf-select ng-model="picFile" name="file"
+      <input id="inp" type="file" ngf-select ng-model="apr.picFile" name="file"
              accept="image/*" ngf-max-size="2MB" required
              ngf-model-invalid="errorFile">
       <i ng-show="false">*required</i><br>
       <i ng-show="false">File too large
         {{errorFile.size / 1000000|number:1}}MB: max 2M</i>
-      <img ng-show="myForm.file.$valid" ngf-thumbnail="picFile" class="img-thumbnail"> <a ng-click="picFile = null"
+      <img ng-show="myForm.file.$valid" ngf-thumbnail="apr.picFile" class="img-thumbnail"> <a ng-click="apr.picFile = null"
                                                                                           class="btn btn-danger"
-                                                                                          ng-show="picFile">Remove</a>
+                                                                                          ng-show="apr.picFile">Remove</a>
       <br>
       <a class="btn btn-default"
-         ng-click="apr.uploadPic(picFile)">Submit</a>
+         ng-click="apr.uploadPic(apr.picFile)">Submit</a>
+      <span class="progress" ng-show="apr.picFile.progress >= 0">
+        <div style="width:100%"
+             ng-bind="'100%'"></div>
+      </span>
+      <span ng-show="apr.picFile.result">Upload Successful</span>
+      <span class="err" ng-show="errorMsg">{{errorMsg}}</span>
     </div>
+
 
 
 

@@ -15,16 +15,16 @@
           </div>
           <div class="media-body">
             <h3 class="media-heading">{{ profDetail.professorDetails.name}}</h3>
+
             <p class="label label-danger">{{ profDetail.professorDetails.department }}</p>
             <!--<p>{{ professor.description }}</p>-->
-            <button type="button" ng-click="editing = true" class="btn btn-primary pull-right">Edit</button>
+            <button type="button" ng-click="editing = true; show=true" class="btn btn-primary pull-right">Edit</button>
           </div>
         </form>
 
 
-
         <!-- ----------------  EDITING MODE  --------------------- -->
-        <form ng-show="editing" ng-submit="editing = false">
+        <form ng-show="editing" name="profDetail.editingForm" role="form" ng-submit="editing = false">
           <label>Name:</label>
           <input type="text" ng-model="profDetail.professorDetails.name" placeholder="Name" ng-required/>
           <label>Department:</label>
@@ -40,14 +40,34 @@
           <!--<label>Description:</label>-->
           <!--<input type="text" ng-model="profDetail.professorDetails.description" placeholder="Description" ng-required/>-->
           <br/>
-          <button class="btn btn-success" ng-click="profDetail.saveProfessorEditing(profDetail.professorDetails.id)" type="submit">Save</button>
-          <button class="btn btn-danger" type="button" ng-click="profDetail.deleteProfessor(profDetail.professorDetails.id)">
+
+          <img ng-show="show" ng-src="{{ profDetail.professorDetails.photo }}" class="img-thumbnail" alt="">
+
+          <input id="" type="file" ng-click="show=false" ngf-select ng-model="profDetail.picFile" name="file"
+                 accept="image/*" ngf-max-size="2MB" required
+                 ngf-model-invalid="errorFile">
+          <i ng-show="profDetail.editingForm.file.$error.required">*required</i><br>
+          <img ng-show="profDetail.editingForm.file.$valid" ngf-thumbnail="profDetail.picFile" class="img-thumbnail"> <a
+          ng-click="profDetail.picFile = null"
+          class="btn btn-danger"
+          ng-show="profDetail.picFile">Remove</a>
+          <br>
+          <a class="btn btn-default" ng-show="profDetail.picFile"
+             ng-click="profDetail.uploadPic(profDetail.picFile)">Upload</a>
+
+      <span class="progress" ng-show="profDetail.picFile.progress >= 0">
+        <div ng-bind="'Uploaded Succesfully'"></div>
+      </span>
+
+
+          <button class="btn btn-success" ng-click="profDetail.saveProfessorEditing(profDetail.professorDetails.id)"
+                  type="submit">Save
+          </button>
+          <button class="btn btn-danger" type="button"
+                  ng-click="profDetail.deleteProfessor(profDetail.professorDetails.id)">
             Delete
           </button>
         </form>
-
-
-
 
 
         <!-------------------- EVALUATIONS ---------------------->
@@ -56,9 +76,6 @@
             <span><strong>Unknown:::: </strong></span> i cant believe i pay $22/class with this professor.
           </div>
         </div>
-
-
-
 
 
       </div>

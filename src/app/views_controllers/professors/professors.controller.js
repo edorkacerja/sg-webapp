@@ -7,12 +7,14 @@ var edor = {};
 
 export class ProfessorsController {
 
-  constructor($modal, ProfessorsService) {
+  constructor($modal, ProfessorsService, $scope) {
     'ngInject';
     SERVICE.set(edor, ProfessorsService.resource);
     this.$modal = $modal;
     this.filtText = '';
     this.tab = 1;
+
+    $scope.$on('professorAdded', this.getProfessors);
 
 
     this.getProfessors();

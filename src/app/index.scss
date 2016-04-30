@@ -47,11 +47,14 @@ form.tab-form-demo .tab-pane {
   width: 360px;
   padding: 8% 0 0;
   margin: auto;
+  
+  h1{
+    color: white;}
 }
 .form {
   position: relative;
   z-index: 1;
-  background: #FFFFFF;
+  background: #0D335F;
   max-width: 360px;
   margin: 0 auto 100px;
   padding: 45px;
@@ -73,7 +76,7 @@ form.tab-form-demo .tab-pane {
   font-family: "Roboto", sans-serif;
   text-transform: uppercase;
   outline: 0;
-  background: #4CAF50;
+  background: #05162E;
   width: 100%;
   border: 0;
   padding: 15px;
@@ -84,7 +87,7 @@ form.tab-form-demo .tab-pane {
   cursor: pointer;
 }
 .form button:hover,.form button:active,.form button:focus {
-  background: #43A047;
+  background: royalblue;
 }
 .form .message {
   margin: 15px 0 0;
@@ -92,7 +95,7 @@ form.tab-form-demo .tab-pane {
   font-size: 12px;
 }
 .form .message a {
-  color: #4CAF50;
+  color: red;
   text-decoration: none;
 }
 .form .register-form {
@@ -132,15 +135,18 @@ form.tab-form-demo .tab-pane {
   color: #EF3B3A;
 }
 body {
-  background: #76b852; /* fallback for old browsers */
-  background: -webkit-linear-gradient(right, #76b852, #8DC26F);
-  background: -moz-linear-gradient(right, #76b852, #8DC26F);
-  background: -o-linear-gradient(right, #76b852, #8DC26F);
-  background: linear-gradient(to left, #76b852, #8DC26F);
+  //background: #FFF; /* fallback for old browsers */
+  //background: -webkit-linear-gradient(bottom, #2596EC, #0F3367);
+  //background: -moz-linear-gradient(right, #FFF, #FFF);
+  //background: -o-linear-gradient(right, #FFF, #FFF);
+  //background: linear-gradient(to bottom, #2596EC, #0F3367);
+  background-image: url("../assets/images/background.png");
   font-family: "Roboto", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+
+
 /**
  *  Do not remove the comments below. It's the markers used by gulp-inject to inject
  *  all your sass files automatically

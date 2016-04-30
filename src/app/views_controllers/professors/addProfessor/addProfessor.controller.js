@@ -19,7 +19,7 @@ export class AddProfessorController {
 
 
 
-  //---------------- UPLOAD FILE ----------------
+  //---------------- UPLOAD PICTURE ----------------
   uploadPic(file) {
 
     if ((file )|| true) {

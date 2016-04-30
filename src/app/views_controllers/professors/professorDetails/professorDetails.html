@@ -23,7 +23,8 @@
         </form>
 
 
-        <!-- ----------------  EDITING MODE  --------------------- -->
+
+        <!-------------------  EDITING MODE  ------------------------>
         <form ng-show="editing" name="profDetail.editingForm" role="form" ng-submit="editing = false">
           <label>Name:</label>
           <input type="text" ng-model="profDetail.professorDetails.name" placeholder="Name" ng-required/>
@@ -41,19 +42,17 @@
           <!--<input type="text" ng-model="profDetail.professorDetails.description" placeholder="Description" ng-required/>-->
           <br/>
 
-          <img ng-show="show" ng-src="{{ profDetail.professorDetails.photo }}" class="img-thumbnail" alt="">
+
+          <!--<img ng-show="show" ng-src="{{ profDetail.professorDetails.photo }}" class="img-thumbnail" alt="">-->
 
           <input id="" type="file" ng-click="show=false" ngf-select ng-model="profDetail.picFile" name="file"
-                 accept="image/*" ngf-max-size="2MB" required
+                 accept="image/*" ngf-max-size="2MB"
                  ngf-model-invalid="errorFile">
           <i ng-show="profDetail.editingForm.file.$error.required">*required</i><br>
-          <img ng-show="profDetail.editingForm.file.$valid" ngf-thumbnail="profDetail.picFile" class="img-thumbnail"> <a
-          ng-click="profDetail.picFile = null"
-          class="btn btn-danger"
-          ng-show="profDetail.picFile">Remove</a>
+          <img ng-show="profDetail.editingForm.file.$valid" ngf-thumbnail="profDetail.picFile || profDetail.professorDetails.photo" class="img-thumbnail">
+          <a ng-click="profDetail.picFile = null" class="btn btn-danger" ng-show="profDetail.picFile">Remove</a>
           <br>
-          <a class="btn btn-default" ng-show="profDetail.picFile"
-             ng-click="profDetail.uploadPic(profDetail.picFile)">Upload</a>
+          <a class="btn btn-default" ng-show="profDetail.picFile" ng-click="profDetail.uploadPic(profDetail.picFile)">Upload</a>
 
       <span class="progress" ng-show="profDetail.picFile.progress >= 0">
         <div ng-bind="'Uploaded Succesfully'"></div>
@@ -71,10 +70,22 @@
 
 
         <!-------------------- EVALUATIONS ---------------------->
-        <div class="row">
-          <div class="col-md-10">
-            <span><strong>Unknown:::: </strong></span> i cant believe i pay $22/class with this professor.
-          </div>
+        <div class="row team" ng-show="!editing" >
+          <br/>
+          <br/>
+          <h1>Student Evaluations of teaching</h1>
+          <ul>
+            <li>
+              <span><strong>Edor Kacerja:  </strong></span> i cant believe i pay $22/class with this professor.
+            </li>
+            <li>
+              <span><strong>Edor Kacerja:  </strong></span> i cant believe i pay $22/class with this professor.
+            </li>
+            <li>
+              <span><strong>Edor Kacerja:  </strong></span> i cant believe i pay $22/class with this professor.
+            </li>
+          </ul>
+
         </div>
 
 

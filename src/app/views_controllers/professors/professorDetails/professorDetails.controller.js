@@ -55,6 +55,25 @@ export class ProfessorDetailsController {
 
 
 
+
+  //---------------- UPLOAD FILE ----------------
+  uploadPic(file) {
+
+    if ((file )|| true) {
+      var FR= new FileReader();
+      FR.onload = (e) => {
+        this.professorDetails.image_json = e.target.result;
+      };
+      FR.readAsDataURL( file );
+    }
+    file.progress=100;
+
+
+  }
+
+
+
+
 //----------------  BASE 64 CONVERTER ------------------
   toDataUrl(url, callback, outputFormat) {
     var img = new Image();
